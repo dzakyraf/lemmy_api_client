@@ -16,10 +16,10 @@ part 'person.g.dart';
 @freezed
 class Login with _$Login implements LemmyApiQuery<LoginResponse> {
   @apiSerde
-  const factory Login({
-    required String usernameOrEmail,
-    required String password,
-  }) = _Login;
+  const factory Login(
+      {required String usernameOrEmail,
+      required String password,
+      String? totp2faToken}) = _Login;
 
   const Login._();
   factory Login.fromJson(Map<String, dynamic> json) => _$LoginFromJson(json);
@@ -85,10 +85,10 @@ class SaveUserSettings with _$SaveUserSettings implements LemmyApiQuery<Jwt> {
     bool? showNsfw,
     String? theme,
     @JsonKey(fromJson: sortTypeFromIndex, toJson: sortTypeToIndex)
-        SortType? defaultSortType,
+    SortType? defaultSortType,
     @JsonKey(fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
-        PostListingType? defaultListingType,
-    String? lang,
+    PostListingType? defaultListingType,
+    String? interfaceLanguage,
     String? avatar,
     String? banner,
     String? displayName,
@@ -102,6 +102,7 @@ class SaveUserSettings with _$SaveUserSettings implements LemmyApiQuery<Jwt> {
     bool? botAccount,
     bool? showBotAccounts,
     bool? showNewPostNotifs,
+    bool? generateTotp2fa,
     required String auth,
   }) = _SaveUserSettings;
 
@@ -242,10 +243,12 @@ class BanPerson with _$BanPerson implements LemmyApiQuery<BannedPerson> {
 }
 
 @freezed
-class GetReplies with _$GetReplies implements LemmyApiQuery<List<CommentView>> {
+class GetReplies
+    with _$GetReplies
+    implements LemmyApiQuery<List<CommentReplyView>> {
   @apiSerde
   const factory GetReplies({
-    SortType? sort,
+    CommentSortType? sort,
     int? page,
     int? limit,
     bool? unreadOnly,
@@ -261,9 +264,9 @@ class GetReplies with _$GetReplies implements LemmyApiQuery<List<CommentView>> {
   final httpMethod = HttpMethod.get;
 
   @override
-  List<CommentView> responseFactory(Map<String, dynamic> json) =>
+  List<CommentReplyView> responseFactory(Map<String, dynamic> json) =>
       (json['replies'] as List)
-          .map((dynamic e) => CommentView.fromJson(e))
+          .map((dynamic e) => CommentReplyView.fromJson(e))
           .toList();
 }
 
@@ -273,7 +276,7 @@ class GetPersonMentions
     implements LemmyApiQuery<List<PersonMentionView>> {
   @apiSerde
   const factory GetPersonMentions({
-    SortType? sort,
+    CommentSortType? sort,
     int? page,
     int? limit,
     bool? unreadOnly,

@@ -34,7 +34,7 @@ class PersonMentionView with _$PersonMentionView {
     required PersonSafe recipient,
     required CommentAggregates counts,
     required bool creatorBannedFromCommunity,
-    required bool subscribed,
+    required String subscribed,
     required bool saved,
     required bool creatorBlocked,
     VoteType? myVote,
@@ -99,11 +99,12 @@ class PostView with _$PostView {
     required CommunitySafe community,
     required bool creatorBannedFromCommunity,
     required PostAggregates counts,
-    required bool subscribed,
+    required String subscribed,
     required bool saved,
     required bool read,
     required bool creatorBlocked,
     VoteType? myVote,
+    required int unreadComments,
     required String instanceHost,
   }) = _PostView;
 
@@ -139,12 +140,11 @@ class CommentView with _$CommentView {
   const factory CommentView({
     required Comment comment,
     required PersonSafe creator,
-    PersonSafe? recipient,
     required Post post,
     required CommunitySafe community,
     required CommentAggregates counts,
     required bool creatorBannedFromCommunity,
-    required bool subscribed,
+    required String subscribed,
     required bool saved,
     required bool creatorBlocked,
     VoteType? myVote,
@@ -154,6 +154,30 @@ class CommentView with _$CommentView {
   const CommentView._();
   factory CommentView.fromJson(Map<String, dynamic> json) =>
       _$CommentViewFromJson(json);
+}
+
+@freezed
+class CommentReplyView with _$CommentReplyView {
+  @modelSerde
+  const factory CommentReplyView({
+    required CommentReply commentReply,
+    required Comment comment,
+    required PersonSafe creator,
+    required Post post,
+    required CommunitySafe community,
+    required PersonSafe recipient,
+    required CommentAggregates counts,
+    required bool creatorBannedFromCommunity,
+    required String subscribed,
+    required bool saved,
+    required bool creatorBlocked,
+    VoteType? myVote,
+    required String instanceHost,
+  }) = _CommentReplyView;
+
+  const CommentReplyView._();
+  factory CommentReplyView.fromJson(Map<String, dynamic> json) =>
+      _$CommentReplyViewFromJson(json);
 }
 
 @freezed
@@ -412,7 +436,7 @@ class CommunityView with _$CommunityView {
   @modelSerde
   const factory CommunityView({
     required CommunitySafe community,
-    required bool subscribed,
+    required String subscribed,
     required bool blocked,
     required CommunityAggregates counts,
     required String instanceHost,

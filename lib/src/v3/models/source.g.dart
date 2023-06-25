@@ -21,8 +21,6 @@ _$_PersonSafe _$$_PersonSafeFromJson(Map<String, dynamic> json) =>
       local: json['local'] as bool,
       banner: json['banner'] as String?,
       deleted: json['deleted'] as bool,
-      inboxUrl: json['inbox_url'] as String,
-      sharedInboxUrl: json['shared_inbox_url'] as String,
       matrixUserId: json['matrix_user_id'] as String?,
       admin: json['admin'] as bool,
       botAccount: json['bot_account'] as bool,
@@ -46,8 +44,6 @@ Map<String, dynamic> _$$_PersonSafeToJson(_$_PersonSafe instance) =>
       'local': instance.local,
       'banner': instance.banner,
       'deleted': instance.deleted,
-      'inbox_url': instance.inboxUrl,
-      'shared_inbox_url': instance.sharedInboxUrl,
       'matrix_user_id': instance.matrixUserId,
       'admin': instance.admin,
       'bot_account': instance.botAccount,
@@ -75,10 +71,7 @@ _$_LocalUserSettings _$$_LocalUserSettingsFromJson(Map<String, dynamic> json) =>
       email: json['email'] as String?,
       showNsfw: json['show_nsfw'] as bool,
       theme: json['theme'] as String,
-      defaultSortType: sortTypeFromIndex(json['default_sort_type'] as int),
-      defaultListingType:
-          postListingTypeFromIndex(json['default_listing_type'] as int),
-      lang: json['lang'] as String,
+      interfaceLanguage: json['interface_language'] as String,
       showAvatars: json['show_avatars'] as bool,
       showScores: json['show_scores'] as bool,
       sendNotificationsToEmail: json['send_notifications_to_email'] as bool,
@@ -88,6 +81,7 @@ _$_LocalUserSettings _$$_LocalUserSettingsFromJson(Map<String, dynamic> json) =>
       emailVerified: json['email_verified'] as bool,
       acceptedApplication: json['accepted_application'] as bool,
       instanceHost: json['instance_host'] as String,
+      totp2faUrl: json['totp2fa_url'] as String?,
     );
 
 Map<String, dynamic> _$$_LocalUserSettingsToJson(
@@ -98,10 +92,7 @@ Map<String, dynamic> _$$_LocalUserSettingsToJson(
       'email': instance.email,
       'show_nsfw': instance.showNsfw,
       'theme': instance.theme,
-      'default_sort_type': sortTypeToIndex(instance.defaultSortType),
-      'default_listing_type':
-          postListingTypeToIndex(instance.defaultListingType),
-      'lang': instance.lang,
+      'interface_language': instance.interfaceLanguage,
       'show_avatars': instance.showAvatars,
       'show_scores': instance.showScores,
       'send_notifications_to_email': instance.sendNotificationsToEmail,
@@ -111,58 +102,41 @@ Map<String, dynamic> _$$_LocalUserSettingsToJson(
       'email_verified': instance.emailVerified,
       'accepted_application': instance.acceptedApplication,
       'instance_host': instance.instanceHost,
+      'totp2fa_url': instance.totp2faUrl,
     };
 
 _$_Site _$$_SiteFromJson(Map<String, dynamic> json) => _$_Site(
       id: json['id'] as int,
       name: json['name'] as String,
       sidebar: json['sidebar'] as String?,
-      description: json['description'] as String?,
       published: const ForceUtcDateTime().fromJson(json['published'] as String),
       updated: _$JsonConverterFromJson<String, DateTime>(
           json['updated'], const ForceUtcDateTime().fromJson),
-      enableDownvotes: json['enable_downvotes'] as bool,
-      openRegistration: json['open_registration'] as bool,
-      enableNsfw: json['enable_nsfw'] as bool,
-      communityCreationAdminOnly: json['community_creation_admin_only'] as bool,
       icon: json['icon'] as String?,
       banner: json['banner'] as String?,
-      requireEmailVerification: json['require_email_verification'] as bool,
-      requireApplication: json['require_application'] as bool,
-      applicationQuestion: json['application_question'] as String?,
-      privateInstance: json['private_instance'] as bool,
-      defaultTheme: json['default_theme'] as String,
+      description: json['description'] as String?,
       actorId: json['actor_id'] as String,
       lastRefreshedAt: json['last_refreshed_at'] as String,
       inboxUrl: json['inbox_url'] as String,
       publicKey: json['public_key'] as String,
-      instanceHost: json['instance_host'] as String,
+      instanceId: json['instance_id'] as int,
     );
 
 Map<String, dynamic> _$$_SiteToJson(_$_Site instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'sidebar': instance.sidebar,
-      'description': instance.description,
       'published': const ForceUtcDateTime().toJson(instance.published),
       'updated': _$JsonConverterToJson<String, DateTime>(
           instance.updated, const ForceUtcDateTime().toJson),
-      'enable_downvotes': instance.enableDownvotes,
-      'open_registration': instance.openRegistration,
-      'enable_nsfw': instance.enableNsfw,
-      'community_creation_admin_only': instance.communityCreationAdminOnly,
       'icon': instance.icon,
       'banner': instance.banner,
-      'require_email_verification': instance.requireEmailVerification,
-      'require_application': instance.requireApplication,
-      'application_question': instance.applicationQuestion,
-      'private_instance': instance.privateInstance,
-      'default_theme': instance.defaultTheme,
+      'description': instance.description,
       'actor_id': instance.actorId,
       'last_refreshed_at': instance.lastRefreshedAt,
       'inbox_url': instance.inboxUrl,
       'public_key': instance.publicKey,
-      'instance_host': instance.instanceHost,
+      'instance_id': instance.instanceId,
     };
 
 _$_PrivateMessage _$$_PrivateMessageFromJson(Map<String, dynamic> json) =>
@@ -245,10 +219,10 @@ _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
           json['updated'], const ForceUtcDateTime().fromJson),
       deleted: json['deleted'] as bool,
       nsfw: json['nsfw'] as bool,
-      stickied: json['stickied'] as bool,
+      stickied: json['stickied'] as bool?,
       embedTitle: json['embed_title'] as String?,
       embedDescription: json['embed_description'] as String?,
-      embedHtml: json['embed_html'] as String?,
+      embedVideoUrl: json['embed_video_url'] as String?,
       thumbnailUrl: json['thumbnail_url'] as String?,
       apId: json['ap_id'] as String,
       local: json['local'] as bool,
@@ -272,7 +246,7 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'stickied': instance.stickied,
       'embed_title': instance.embedTitle,
       'embed_description': instance.embedDescription,
-      'embed_html': instance.embedHtml,
+      'embed_video_url': instance.embedVideoUrl,
       'thumbnail_url': instance.thumbnailUrl,
       'ap_id': instance.apId,
       'local': instance.local,
@@ -597,20 +571,40 @@ Map<String, dynamic> _$$_CommentReportToJson(_$_CommentReport instance) =>
       'instance_host': instance.instanceHost,
     };
 
+_$_CommentReply _$$_CommentReplyFromJson(Map<String, dynamic> json) =>
+    _$_CommentReply(
+      id: json['id'] as int,
+      recipientId: json['recipient_id'] as int,
+      commentId: json['comment_id'] as int,
+      read: json['read'] as bool,
+      published: const ForceUtcDateTime().fromJson(json['published'] as String),
+      instanceHost: json['instance_host'] as String,
+    );
+
+Map<String, dynamic> _$$_CommentReplyToJson(_$_CommentReply instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'recipient_id': instance.recipientId,
+      'comment_id': instance.commentId,
+      'read': instance.read,
+      'published': const ForceUtcDateTime().toJson(instance.published),
+      'instance_host': instance.instanceHost,
+    };
+
 _$_Comment _$$_CommentFromJson(Map<String, dynamic> json) => _$_Comment(
       id: json['id'] as int,
       creatorId: json['creator_id'] as int,
       postId: json['post_id'] as int,
-      parentId: json['parent_id'] as int?,
       content: json['content'] as String,
       removed: json['removed'] as bool,
-      read: json['read'] as bool,
       published: const ForceUtcDateTime().fromJson(json['published'] as String),
       updated: _$JsonConverterFromJson<String, DateTime>(
           json['updated'], const ForceUtcDateTime().fromJson),
       deleted: json['deleted'] as bool,
       apId: json['ap_id'] as String,
       local: json['local'] as bool,
+      path: json['path'] as String,
+      distinguished: json['distinguished'] as bool,
       instanceHost: json['instance_host'] as String,
     );
 
@@ -619,16 +613,16 @@ Map<String, dynamic> _$$_CommentToJson(_$_Comment instance) =>
       'id': instance.id,
       'creator_id': instance.creatorId,
       'post_id': instance.postId,
-      'parent_id': instance.parentId,
       'content': instance.content,
       'removed': instance.removed,
-      'read': instance.read,
       'published': const ForceUtcDateTime().toJson(instance.published),
       'updated': _$JsonConverterToJson<String, DateTime>(
           instance.updated, const ForceUtcDateTime().toJson),
       'deleted': instance.deleted,
       'ap_id': instance.apId,
       'local': instance.local,
+      'path': instance.path,
+      'distinguished': instance.distinguished,
       'instance_host': instance.instanceHost,
     };
 

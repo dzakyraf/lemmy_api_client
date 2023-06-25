@@ -1,4 +1,4 @@
-import 'package:lemmy_api_client/v3.dart';
+import 'package:lemmy_api_client2/v3.dart';
 import 'package:test/test.dart';
 
 import 'util.dart';
@@ -123,7 +123,7 @@ void main() {
           () => run(
             GetComments(
               type: CommentListingType.all,
-              sort: SortType.active,
+              sort: CommentSortType.hot,
               communityName: goodCommunityName,
               savedOnly: false,
               auth: goodAuth,
@@ -154,7 +154,7 @@ void main() {
           () => lemmyThrows(
             const GetComments(
               type: CommentListingType.all,
-              sort: SortType.active,
+              sort: CommentSortType.hot,
               savedOnly: false,
               auth: badAuth,
             ),

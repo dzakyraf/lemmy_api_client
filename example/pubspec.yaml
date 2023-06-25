@@ -8,5 +8,5 @@ environment:
   sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
-  lemmy_api_client:
+  lemmy_api_client2:
     path: ../

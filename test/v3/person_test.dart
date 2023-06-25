@@ -1,4 +1,4 @@
-import 'package:lemmy_api_client/v3.dart';
+import 'package:lemmy_api_client2/v3.dart';
 import 'package:test/test.dart';
 
 import 'util.dart';
@@ -26,7 +26,7 @@ void main() {
               theme: 'browser',
               defaultSortType: SortType.active,
               defaultListingType: PostListingType.all,
-              lang: 'browser',
+              interfaceLanguage: 'browser',
               showAvatars: true,
               sendNotificationsToEmail: true,
               auth: goodAuth,
@@ -42,7 +42,7 @@ void main() {
               theme: 'browser',
               defaultSortType: SortType.active,
               defaultListingType: PostListingType.all,
-              lang: 'browser',
+              interfaceLanguage: 'browser',
               showAvatars: true,
               sendNotificationsToEmail: true,
               auth: badAuth,
@@ -142,7 +142,7 @@ void main() {
           'correctly fetches',
           () => run(
             GetReplies(
-              sort: SortType.active,
+              sort: CommentSortType.hot,
               unreadOnly: true,
               auth: goodAuth,
             ),
@@ -153,7 +153,7 @@ void main() {
           'bad auth',
           () => lemmyThrows(
             const GetReplies(
-              sort: SortType.active,
+              sort: CommentSortType.hot,
               unreadOnly: true,
               auth: badAuth,
             ),
@@ -166,7 +166,7 @@ void main() {
           'correctly fetches',
           () => run(
             GetPersonMentions(
-              sort: SortType.active,
+              sort: CommentSortType.hot,
               unreadOnly: true,
               auth: goodAuth,
             ),
@@ -177,7 +177,7 @@ void main() {
           'bad auth',
           () => lemmyThrows(
             const GetPersonMentions(
-              sort: SortType.active,
+              sort: CommentSortType.hot,
               unreadOnly: true,
               auth: badAuth,
             ),

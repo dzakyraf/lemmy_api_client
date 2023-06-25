@@ -24,8 +24,6 @@ class PersonSafe with _$PersonSafe {
     required bool local,
     String? banner,
     required bool deleted,
-    required String inboxUrl,
-    required String sharedInboxUrl,
     String? matrixUserId,
     required bool admin,
     required bool botAccount,
@@ -41,27 +39,28 @@ class PersonSafe with _$PersonSafe {
 @freezed
 class LocalUserSettings with _$LocalUserSettings {
   @modelSerde
-  const factory LocalUserSettings({
-    required int id,
-    required int personId,
-    String? email,
-    required bool showNsfw,
-    required String theme,
-    @JsonKey(fromJson: sortTypeFromIndex, toJson: sortTypeToIndex)
-        required SortType defaultSortType,
-    @JsonKey(fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
-        required PostListingType defaultListingType,
-    required String lang,
-    required bool showAvatars,
-    required bool showScores,
-    required bool sendNotificationsToEmail,
-    required bool showReadPosts,
-    required bool showBotAccounts,
-    required bool showNewPostNotifs,
-    required bool emailVerified,
-    required bool acceptedApplication,
-    required String instanceHost,
-  }) = _LocalUserSettings;
+  const factory LocalUserSettings(
+      {required int id,
+      required int personId,
+      String? email,
+      required bool showNsfw,
+      required String theme,
+      // TODO
+      // @JsonKey(fromJson: sortTypeFromIndex, toJson: sortTypeToIndex)
+      // required SortType defaultSortType,
+      // @JsonKey(fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
+      // required PostListingType defaultListingType,
+      required String interfaceLanguage,
+      required bool showAvatars,
+      required bool showScores,
+      required bool sendNotificationsToEmail,
+      required bool showReadPosts,
+      required bool showBotAccounts,
+      required bool showNewPostNotifs,
+      required bool emailVerified,
+      required bool acceptedApplication,
+      required String instanceHost,
+      String? totp2faUrl}) = _LocalUserSettings;
 
   const LocalUserSettings._();
   factory LocalUserSettings.fromJson(Map<String, dynamic> json) =>
@@ -75,25 +74,16 @@ class Site with _$Site {
     required int id,
     required String name,
     String? sidebar,
-    String? description,
     required DateTime published,
     DateTime? updated,
-    required bool enableDownvotes,
-    required bool openRegistration,
-    required bool enableNsfw,
-    required bool communityCreationAdminOnly,
     String? icon,
     String? banner,
-    required bool requireEmailVerification,
-    required bool requireApplication,
-    String? applicationQuestion,
-    required bool privateInstance,
-    required String defaultTheme,
+    String? description,
     required String actorId,
     required String lastRefreshedAt,
     required String inboxUrl,
     required String publicKey,
-    required String instanceHost,
+    required int instanceId,
   }) = _Site;
 
   const Site._();
@@ -161,10 +151,10 @@ class Post with _$Post {
     DateTime? updated,
     required bool deleted,
     required bool nsfw,
-    required bool stickied,
+    bool? stickied,
     String? embedTitle,
     String? embedDescription,
-    String? embedHtml,
+    String? embedVideoUrl,
     String? thumbnailUrl,
     required String apId,
     required bool local,
@@ -417,21 +407,38 @@ class CommentReport with _$CommentReport {
 }
 
 @freezed
+class CommentReply with _$CommentReply {
+  @modelSerde
+  const factory CommentReply({
+    required int id,
+    required int recipientId,
+    required int commentId,
+    required bool read,
+    required DateTime published,
+    required String instanceHost,
+  }) = _CommentReply;
+
+  const CommentReply._();
+  factory CommentReply.fromJson(Map<String, dynamic> json) =>
+      _$CommentReplyFromJson(json);
+}
+
+@freezed
 class Comment with _$Comment {
   @modelSerde
   const factory Comment({
     required int id,
     required int creatorId,
     required int postId,
-    int? parentId,
     required String content,
     required bool removed,
-    required bool read,
     required DateTime published,
     DateTime? updated,
     required bool deleted,
     required String apId,
     required bool local,
+    required String path,
+    required bool distinguished,
     required String instanceHost,
   }) = _Comment;
 

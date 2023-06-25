@@ -5,7 +5,6 @@ export 'src/v3/api/community.dart';
 export 'src/v3/api/person.dart';
 export 'src/v3/api/post.dart';
 export 'src/v3/api/site.dart';
-export 'src/v3/api/websockets.dart';
 export 'src/v3/main.dart';
 export 'src/v3/models/aggregates.dart';
 export 'src/v3/models/api.dart';

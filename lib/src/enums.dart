@@ -30,8 +30,7 @@ enum VoteType {
 enum PostListingType {
   all('All'),
   local('Local'),
-  subscribed('Subscribed'),
-  community('Community');
+  subscribed('Subscribed');
 
   final String value;
   const PostListingType(this.value);
@@ -44,10 +43,28 @@ enum PostListingType {
   String toString() => value;
 }
 
+enum CommentSortType {
+  hot('Hot'),
+  top_('Top'),
+  new_('New'),
+  old_('Old');
+
+  final String value;
+  const CommentSortType(this.value);
+
+  factory CommentSortType.fromJson(String value) =>
+      values.firstWhere((e) => e.value == value);
+
+  String toJson() => value;
+
+  String toString() => value;
+}
+
 enum SortType {
   active('Active'),
   hot('Hot'),
   new_('New'),
+  old_('Old'),
   topDay('TopDay'),
   topWeek('TopWeek'),
   topMonth('TopMonth'),
@@ -89,8 +106,7 @@ enum SearchType {
 
 enum CommentListingType {
   all('All'),
-  subscribed('Subscribed'),
-  community('Community');
+  subscribed('Subscribed');
 
   final String value;
   const CommentListingType(this.value);

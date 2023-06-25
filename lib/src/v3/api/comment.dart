@@ -112,10 +112,10 @@ class RemoveComment
 @freezed
 class MarkCommentAsRead
     with _$MarkCommentAsRead
-    implements LemmyApiQuery<FullCommentView> {
+    implements LemmyApiQuery<CommentReplyView> {
   @apiSerde
   const factory MarkCommentAsRead({
-    required int commentId,
+    required int CommentReplyId,
     required bool read,
     required String auth,
   }) = _MarkCommentAsRead;
@@ -129,8 +129,8 @@ class MarkCommentAsRead
   final httpMethod = HttpMethod.post;
 
   @override
-  FullCommentView responseFactory(Map<String, dynamic> json) =>
-      FullCommentView.fromJson(json);
+  CommentReplyView responseFactory(Map<String, dynamic> json) =>
+      CommentReplyView.fromJson(json['comment_reply_view']);
 }
 
 @freezed
@@ -186,11 +186,14 @@ class GetComments
   @apiSerde
   const factory GetComments({
     @JsonKey(name: 'type_') CommentListingType? type,
-    SortType? sort,
+    CommentSortType? sort,
+    int? maxDepth,
     int? page,
     int? limit,
     int? communityId,
     String? communityName,
+    int? postId,
+    int? parentId,
     bool? savedOnly,
     String? auth,
   }) = _GetComments;

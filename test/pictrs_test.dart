@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:lemmy_api_client/pictrs.dart';
+import 'package:lemmy_api_client2/pictrs.dart';
 import 'package:test/test.dart';
 
 void main() {

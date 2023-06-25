@@ -1,4 +1,4 @@
-import 'package:lemmy_api_client/v3.dart';
+import 'package:lemmy_api_client2/v3.dart';
 import 'package:test/test.dart';
 
 import 'util.dart';
@@ -165,19 +165,20 @@ void main() {
         test('correctly fetches', () async {
           final metadata = await run(
             const GetSiteMetadata(
-              url: 'https://www.youtube.com/watch?v=mFyUrebJbDg',
+              url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
             ),
           );
 
-          expect(metadata.title, 'SO SAD THAT STEVE JOBS DIED OF LIGMA');
+          expect(metadata.title,
+              'Rick Astley - Never Gonna Give You Up (Official Music Video)');
           expect(
             metadata.description,
-            'Stolen from apparently this https://youtu.be/maAIWplFWUwI think I actually just'
-            " saved this off twitter or something so I don't know who really made it.",
+            '''
+The official video for “Never Gonna Give You Up” by Rick Astley‘Hold Me In Your Arms’ – deluxe blue vinyl,  2CD and digital deluxe out 12th May 2023 Pre-orde...''',
           );
           expect(
             metadata.image,
-            'https://i.ytimg.com/vi/mFyUrebJbDg/hqdefault.jpg',
+            'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
           );
         });
 

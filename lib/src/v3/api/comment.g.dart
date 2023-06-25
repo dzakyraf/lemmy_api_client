@@ -99,7 +99,7 @@ Map<String, dynamic> _$$_RemoveCommentToJson(_$_RemoveComment instance) {
 
 _$_MarkCommentAsRead _$$_MarkCommentAsReadFromJson(Map<String, dynamic> json) =>
     _$_MarkCommentAsRead(
-      commentId: json['comment_id'] as int,
+      CommentReplyId: json['comment_reply_id'] as int,
       read: json['read'] as bool,
       auth: json['auth'] as String,
     );
@@ -107,7 +107,7 @@ _$_MarkCommentAsRead _$$_MarkCommentAsReadFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_MarkCommentAsReadToJson(
         _$_MarkCommentAsRead instance) =>
     <String, dynamic>{
-      'comment_id': instance.commentId,
+      'comment_reply_id': instance.CommentReplyId,
       'read': instance.read,
       'auth': instance.auth,
     };
@@ -148,11 +148,14 @@ _$_GetComments _$$_GetCommentsFromJson(Map<String, dynamic> json) =>
           : CommentListingType.fromJson(json['type_'] as String),
       sort: json['sort'] == null
           ? null
-          : SortType.fromJson(json['sort'] as String),
+          : CommentSortType.fromJson(json['sort'] as String),
+      maxDepth: json['max_depth'] as int?,
       page: json['page'] as int?,
       limit: json['limit'] as int?,
       communityId: json['community_id'] as int?,
       communityName: json['community_name'] as String?,
+      postId: json['post_id'] as int?,
+      parentId: json['parent_id'] as int?,
       savedOnly: json['saved_only'] as bool?,
       auth: json['auth'] as String?,
     );
@@ -168,10 +171,13 @@ Map<String, dynamic> _$$_GetCommentsToJson(_$_GetComments instance) {
 
   writeNotNull('type_', instance.type?.toJson());
   writeNotNull('sort', instance.sort?.toJson());
+  writeNotNull('max_depth', instance.maxDepth);
   writeNotNull('page', instance.page);
   writeNotNull('limit', instance.limit);
   writeNotNull('community_id', instance.communityId);
   writeNotNull('community_name', instance.communityName);
+  writeNotNull('post_id', instance.postId);
+  writeNotNull('parent_id', instance.parentId);
   writeNotNull('saved_only', instance.savedOnly);
   writeNotNull('auth', instance.auth);
   return val;

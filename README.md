@@ -1,6 +1,4 @@
-# ⚠️ THIS PROJECT IS NOT MAINTAINED ANYMORE ⚠️
-
-This project has been officially dropped due to lack of interest and political differences. If anyone is interested in continuing developement, feel free to fork it. For any questions you can message [krawieck](https://matrix.to/#/@krawieck:matrix.org) (who was responsible for the flutter app) or [shilangyu](https://matrix.to/#/@shilangyu:matrix.org) (who was responsible for lemmy_api_client).
+This is a forked repo of a Dart API lib that was not being maintained!
 
 ---
 

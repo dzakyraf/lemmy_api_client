@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:lemmy_api_client/v3.dart';
+import 'package:lemmy_api_client2/v3.dart';
 import 'package:test/test.dart';
 
 final run = const LemmyApiV3('lemmy.ml').run;
@@ -19,7 +19,7 @@ Future<void> lemmyThrows(LemmyApiQuery query) async {
   );
 }
 
-const goodCommunityName = 'lemmy';
+const goodCommunityName = 'outdoor';
 const badCommunityName = '--';
 
 const goodPersonId = 13709;
@@ -28,13 +28,13 @@ const badPersonId = -1;
 const goodModPersonId = 8169;
 const badModPersonId = -1;
 
-const goodPostId = 53512;
+const goodPostId = 563505;
 const badPostId = -1;
 
 const goodUsername = 'shilangyu';
 const badUsername = '--';
 
-const goodCommunityId = 18040;
+const goodCommunityId = 34177;
 const badCommunityId = -1;
 
 const goodMyCommentId = 43631;
@@ -43,5 +43,5 @@ const badMyCommentId = 42890;
 const goodCommentId = 42890;
 const badCommentId = -1;
 
-final goodAuth = Platform.environment['TEST_JWT']!;
+final goodAuth = Platform.environment['TEST_JWT'] ?? 'GUEST';
 const badAuth = 'dsa';
