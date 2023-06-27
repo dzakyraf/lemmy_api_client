@@ -158,6 +158,9 @@ class Post with _$Post {
     String? thumbnailUrl,
     required String apId,
     required bool local,
+    required int languageId,
+    required bool featuredCommunity,
+    required bool featuredLocal,
     required String instanceHost,
   }) = _Post;
 
@@ -439,6 +442,7 @@ class Comment with _$Comment {
     required bool local,
     required String path,
     required bool distinguished,
+    required int languageId,
     required String instanceHost,
   }) = _Comment;
 

@@ -226,6 +226,9 @@ _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
       thumbnailUrl: json['thumbnail_url'] as String?,
       apId: json['ap_id'] as String,
       local: json['local'] as bool,
+      languageId: json['language_id'] as int,
+      featuredCommunity: json['featured_community'] as bool,
+      featuredLocal: json['featured_local'] as bool,
       instanceHost: json['instance_host'] as String,
     );
 
@@ -250,6 +253,9 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'thumbnail_url': instance.thumbnailUrl,
       'ap_id': instance.apId,
       'local': instance.local,
+      'language_id': instance.languageId,
+      'featured_community': instance.featuredCommunity,
+      'featured_local': instance.featuredLocal,
       'instance_host': instance.instanceHost,
     };
 
@@ -605,6 +611,7 @@ _$_Comment _$$_CommentFromJson(Map<String, dynamic> json) => _$_Comment(
       local: json['local'] as bool,
       path: json['path'] as String,
       distinguished: json['distinguished'] as bool,
+      languageId: json['language_id'] as int,
       instanceHost: json['instance_host'] as String,
     );
 
@@ -623,6 +630,7 @@ Map<String, dynamic> _$$_CommentToJson(_$_Comment instance) =>
       'local': instance.local,
       'path': instance.path,
       'distinguished': instance.distinguished,
+      'language_id': instance.languageId,
       'instance_host': instance.instanceHost,
     };
 

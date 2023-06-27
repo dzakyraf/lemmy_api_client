@@ -2140,6 +2140,9 @@ mixin _$Post {
   String? get thumbnailUrl => throw _privateConstructorUsedError;
   String get apId => throw _privateConstructorUsedError;
   bool get local => throw _privateConstructorUsedError;
+  int get languageId => throw _privateConstructorUsedError;
+  bool get featuredCommunity => throw _privateConstructorUsedError;
+  bool get featuredLocal => throw _privateConstructorUsedError;
   String get instanceHost => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -2172,6 +2175,9 @@ abstract class $PostCopyWith<$Res> {
       String? thumbnailUrl,
       String apId,
       bool local,
+      int languageId,
+      bool featuredCommunity,
+      bool featuredLocal,
       String instanceHost});
 }
 
@@ -2207,6 +2213,9 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? thumbnailUrl = freezed,
     Object? apId = null,
     Object? local = null,
+    Object? languageId = null,
+    Object? featuredCommunity = null,
+    Object? featuredLocal = null,
     Object? instanceHost = null,
   }) {
     return _then(_value.copyWith(
@@ -2286,6 +2295,18 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.local
           : local // ignore: cast_nullable_to_non_nullable
               as bool,
+      languageId: null == languageId
+          ? _value.languageId
+          : languageId // ignore: cast_nullable_to_non_nullable
+              as int,
+      featuredCommunity: null == featuredCommunity
+          ? _value.featuredCommunity
+          : featuredCommunity // ignore: cast_nullable_to_non_nullable
+              as bool,
+      featuredLocal: null == featuredLocal
+          ? _value.featuredLocal
+          : featuredLocal // ignore: cast_nullable_to_non_nullable
+              as bool,
       instanceHost: null == instanceHost
           ? _value.instanceHost
           : instanceHost // ignore: cast_nullable_to_non_nullable
@@ -2320,6 +2341,9 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       String? thumbnailUrl,
       String apId,
       bool local,
+      int languageId,
+      bool featuredCommunity,
+      bool featuredLocal,
       String instanceHost});
 }
 
@@ -2351,6 +2375,9 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? thumbnailUrl = freezed,
     Object? apId = null,
     Object? local = null,
+    Object? languageId = null,
+    Object? featuredCommunity = null,
+    Object? featuredLocal = null,
     Object? instanceHost = null,
   }) {
     return _then(_$_Post(
@@ -2430,6 +2457,18 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.local
           : local // ignore: cast_nullable_to_non_nullable
               as bool,
+      languageId: null == languageId
+          ? _value.languageId
+          : languageId // ignore: cast_nullable_to_non_nullable
+              as int,
+      featuredCommunity: null == featuredCommunity
+          ? _value.featuredCommunity
+          : featuredCommunity // ignore: cast_nullable_to_non_nullable
+              as bool,
+      featuredLocal: null == featuredLocal
+          ? _value.featuredLocal
+          : featuredLocal // ignore: cast_nullable_to_non_nullable
+              as bool,
       instanceHost: null == instanceHost
           ? _value.instanceHost
           : instanceHost // ignore: cast_nullable_to_non_nullable
@@ -2462,6 +2501,9 @@ class _$_Post extends _Post {
       this.thumbnailUrl,
       required this.apId,
       required this.local,
+      required this.languageId,
+      required this.featuredCommunity,
+      required this.featuredLocal,
       required this.instanceHost})
       : super._();
 
@@ -2506,11 +2548,17 @@ class _$_Post extends _Post {
   @override
   final bool local;
   @override
+  final int languageId;
+  @override
+  final bool featuredCommunity;
+  @override
+  final bool featuredLocal;
+  @override
   final String instanceHost;
 
   @override
   String toString() {
-    return 'Post(id: $id, name: $name, url: $url, body: $body, creatorId: $creatorId, communityId: $communityId, removed: $removed, locked: $locked, published: $published, updated: $updated, deleted: $deleted, nsfw: $nsfw, stickied: $stickied, embedTitle: $embedTitle, embedDescription: $embedDescription, embedVideoUrl: $embedVideoUrl, thumbnailUrl: $thumbnailUrl, apId: $apId, local: $local, instanceHost: $instanceHost)';
+    return 'Post(id: $id, name: $name, url: $url, body: $body, creatorId: $creatorId, communityId: $communityId, removed: $removed, locked: $locked, published: $published, updated: $updated, deleted: $deleted, nsfw: $nsfw, stickied: $stickied, embedTitle: $embedTitle, embedDescription: $embedDescription, embedVideoUrl: $embedVideoUrl, thumbnailUrl: $thumbnailUrl, apId: $apId, local: $local, languageId: $languageId, featuredCommunity: $featuredCommunity, featuredLocal: $featuredLocal, instanceHost: $instanceHost)';
   }
 
   @override
@@ -2545,6 +2593,12 @@ class _$_Post extends _Post {
                 other.thumbnailUrl == thumbnailUrl) &&
             (identical(other.apId, apId) || other.apId == apId) &&
             (identical(other.local, local) || other.local == local) &&
+            (identical(other.languageId, languageId) ||
+                other.languageId == languageId) &&
+            (identical(other.featuredCommunity, featuredCommunity) ||
+                other.featuredCommunity == featuredCommunity) &&
+            (identical(other.featuredLocal, featuredLocal) ||
+                other.featuredLocal == featuredLocal) &&
             (identical(other.instanceHost, instanceHost) ||
                 other.instanceHost == instanceHost));
   }
@@ -2572,6 +2626,9 @@ class _$_Post extends _Post {
         thumbnailUrl,
         apId,
         local,
+        languageId,
+        featuredCommunity,
+        featuredLocal,
         instanceHost
       ]);
 
@@ -2610,6 +2667,9 @@ abstract class _Post extends Post {
       final String? thumbnailUrl,
       required final String apId,
       required final bool local,
+      required final int languageId,
+      required final bool featuredCommunity,
+      required final bool featuredLocal,
       required final String instanceHost}) = _$_Post;
   const _Post._() : super._();
 
@@ -2653,6 +2713,12 @@ abstract class _Post extends Post {
   String get apId;
   @override
   bool get local;
+  @override
+  int get languageId;
+  @override
+  bool get featuredCommunity;
+  @override
+  bool get featuredLocal;
   @override
   String get instanceHost;
   @override
@@ -6631,6 +6697,7 @@ mixin _$Comment {
   bool get local => throw _privateConstructorUsedError;
   String get path => throw _privateConstructorUsedError;
   bool get distinguished => throw _privateConstructorUsedError;
+  int get languageId => throw _privateConstructorUsedError;
   String get instanceHost => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -6656,6 +6723,7 @@ abstract class $CommentCopyWith<$Res> {
       bool local,
       String path,
       bool distinguished,
+      int languageId,
       String instanceHost});
 }
 
@@ -6684,6 +6752,7 @@ class _$CommentCopyWithImpl<$Res, $Val extends Comment>
     Object? local = null,
     Object? path = null,
     Object? distinguished = null,
+    Object? languageId = null,
     Object? instanceHost = null,
   }) {
     return _then(_value.copyWith(
@@ -6735,6 +6804,10 @@ class _$CommentCopyWithImpl<$Res, $Val extends Comment>
           ? _value.distinguished
           : distinguished // ignore: cast_nullable_to_non_nullable
               as bool,
+      languageId: null == languageId
+          ? _value.languageId
+          : languageId // ignore: cast_nullable_to_non_nullable
+              as int,
       instanceHost: null == instanceHost
           ? _value.instanceHost
           : instanceHost // ignore: cast_nullable_to_non_nullable
@@ -6763,6 +6836,7 @@ abstract class _$$_CommentCopyWith<$Res> implements $CommentCopyWith<$Res> {
       bool local,
       String path,
       bool distinguished,
+      int languageId,
       String instanceHost});
 }
 
@@ -6788,6 +6862,7 @@ class __$$_CommentCopyWithImpl<$Res>
     Object? local = null,
     Object? path = null,
     Object? distinguished = null,
+    Object? languageId = null,
     Object? instanceHost = null,
   }) {
     return _then(_$_Comment(
@@ -6839,6 +6914,10 @@ class __$$_CommentCopyWithImpl<$Res>
           ? _value.distinguished
           : distinguished // ignore: cast_nullable_to_non_nullable
               as bool,
+      languageId: null == languageId
+          ? _value.languageId
+          : languageId // ignore: cast_nullable_to_non_nullable
+              as int,
       instanceHost: null == instanceHost
           ? _value.instanceHost
           : instanceHost // ignore: cast_nullable_to_non_nullable
@@ -6864,6 +6943,7 @@ class _$_Comment extends _Comment {
       required this.local,
       required this.path,
       required this.distinguished,
+      required this.languageId,
       required this.instanceHost})
       : super._();
 
@@ -6895,11 +6975,13 @@ class _$_Comment extends _Comment {
   @override
   final bool distinguished;
   @override
+  final int languageId;
+  @override
   final String instanceHost;
 
   @override
   String toString() {
-    return 'Comment(id: $id, creatorId: $creatorId, postId: $postId, content: $content, removed: $removed, published: $published, updated: $updated, deleted: $deleted, apId: $apId, local: $local, path: $path, distinguished: $distinguished, instanceHost: $instanceHost)';
+    return 'Comment(id: $id, creatorId: $creatorId, postId: $postId, content: $content, removed: $removed, published: $published, updated: $updated, deleted: $deleted, apId: $apId, local: $local, path: $path, distinguished: $distinguished, languageId: $languageId, instanceHost: $instanceHost)';
   }
 
   @override
@@ -6922,6 +7004,8 @@ class _$_Comment extends _Comment {
             (identical(other.path, path) || other.path == path) &&
             (identical(other.distinguished, distinguished) ||
                 other.distinguished == distinguished) &&
+            (identical(other.languageId, languageId) ||
+                other.languageId == languageId) &&
             (identical(other.instanceHost, instanceHost) ||
                 other.instanceHost == instanceHost));
   }
@@ -6942,6 +7026,7 @@ class _$_Comment extends _Comment {
       local,
       path,
       distinguished,
+      languageId,
       instanceHost);
 
   @JsonKey(ignore: true)
@@ -6972,6 +7057,7 @@ abstract class _Comment extends Comment {
       required final bool local,
       required final String path,
       required final bool distinguished,
+      required final int languageId,
       required final String instanceHost}) = _$_Comment;
   const _Comment._() : super._();
 
@@ -7001,6 +7087,8 @@ abstract class _Comment extends Comment {
   String get path;
   @override
   bool get distinguished;
+  @override
+  int get languageId;
   @override
   String get instanceHost;
   @override

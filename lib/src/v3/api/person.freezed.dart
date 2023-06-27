@@ -22,6 +22,7 @@ Login _$LoginFromJson(Map<String, dynamic> json) {
 mixin _$Login {
   String get usernameOrEmail => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  @JsonKey(name: 'totp_2fa_token')
   String? get totp2faToken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +35,10 @@ abstract class $LoginCopyWith<$Res> {
   factory $LoginCopyWith(Login value, $Res Function(Login) then) =
       _$LoginCopyWithImpl<$Res, Login>;
   @useResult
-  $Res call({String usernameOrEmail, String password, String? totp2faToken});
+  $Res call(
+      {String usernameOrEmail,
+      String password,
+      @JsonKey(name: 'totp_2fa_token') String? totp2faToken});
 }
 
 /// @nodoc
@@ -77,7 +81,10 @@ abstract class _$$_LoginCopyWith<$Res> implements $LoginCopyWith<$Res> {
       __$$_LoginCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String usernameOrEmail, String password, String? totp2faToken});
+  $Res call(
+      {String usernameOrEmail,
+      String password,
+      @JsonKey(name: 'totp_2fa_token') String? totp2faToken});
 }
 
 /// @nodoc
@@ -117,7 +124,7 @@ class _$_Login extends _Login {
   const _$_Login(
       {required this.usernameOrEmail,
       required this.password,
-      this.totp2faToken})
+      @JsonKey(name: 'totp_2fa_token') this.totp2faToken})
       : super._();
 
   factory _$_Login.fromJson(Map<String, dynamic> json) =>
@@ -128,6 +135,7 @@ class _$_Login extends _Login {
   @override
   final String password;
   @override
+  @JsonKey(name: 'totp_2fa_token')
   final String? totp2faToken;
 
   @override
@@ -171,7 +179,7 @@ abstract class _Login extends Login {
   const factory _Login(
       {required final String usernameOrEmail,
       required final String password,
-      final String? totp2faToken}) = _$_Login;
+      @JsonKey(name: 'totp_2fa_token') final String? totp2faToken}) = _$_Login;
   const _Login._() : super._();
 
   factory _Login.fromJson(Map<String, dynamic> json) = _$_Login.fromJson;
@@ -181,6 +189,7 @@ abstract class _Login extends Login {
   @override
   String get password;
   @override
+  @JsonKey(name: 'totp_2fa_token')
   String? get totp2faToken;
   @override
   @JsonKey(ignore: true)

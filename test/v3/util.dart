@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:lemmy_api_client2/v3.dart';
 import 'package:test/test.dart';
 
-final run = const LemmyApiV3('lemmy.ml').run;
+final run = const LemmyApiV3('lemmy.ca').run;
 
 /// checks if the LemmyApiQuery will throw and will have a correct i18n string set as a message
 Future<void> lemmyThrows(LemmyApiQuery query) async {
@@ -28,7 +28,7 @@ const badPersonId = -1;
 const goodModPersonId = 8169;
 const badModPersonId = -1;
 
-const goodPostId = 563505;
+const goodPostId = 862306;
 const badPostId = -1;
 
 const goodUsername = 'shilangyu';

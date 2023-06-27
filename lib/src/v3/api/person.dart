@@ -19,7 +19,7 @@ class Login with _$Login implements LemmyApiQuery<LoginResponse> {
   const factory Login(
       {required String usernameOrEmail,
       required String password,
-      String? totp2faToken}) = _Login;
+      @JsonKey(name: 'totp_2fa_token') String? totp2faToken}) = _Login;
 
   const Login._();
   factory Login.fromJson(Map<String, dynamic> json) => _$LoginFromJson(json);
