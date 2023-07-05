@@ -461,6 +461,7 @@ mixin _$ListCommunities {
   @JsonKey(name: 'type_')
   PostListingType? get type => throw _privateConstructorUsedError;
   SortType? get sort => throw _privateConstructorUsedError;
+  bool? get showNsfw => throw _privateConstructorUsedError;
   int? get page => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
   String? get auth => throw _privateConstructorUsedError;
@@ -480,6 +481,7 @@ abstract class $ListCommunitiesCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'type_') PostListingType? type,
       SortType? sort,
+      bool? showNsfw,
       int? page,
       int? limit,
       String? auth});
@@ -500,6 +502,7 @@ class _$ListCommunitiesCopyWithImpl<$Res, $Val extends ListCommunities>
   $Res call({
     Object? type = freezed,
     Object? sort = freezed,
+    Object? showNsfw = freezed,
     Object? page = freezed,
     Object? limit = freezed,
     Object? auth = freezed,
@@ -513,6 +516,10 @@ class _$ListCommunitiesCopyWithImpl<$Res, $Val extends ListCommunities>
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
               as SortType?,
+      showNsfw: freezed == showNsfw
+          ? _value.showNsfw
+          : showNsfw // ignore: cast_nullable_to_non_nullable
+              as bool?,
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -540,6 +547,7 @@ abstract class _$$_ListCommunitiesCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'type_') PostListingType? type,
       SortType? sort,
+      bool? showNsfw,
       int? page,
       int? limit,
       String? auth});
@@ -558,6 +566,7 @@ class __$$_ListCommunitiesCopyWithImpl<$Res>
   $Res call({
     Object? type = freezed,
     Object? sort = freezed,
+    Object? showNsfw = freezed,
     Object? page = freezed,
     Object? limit = freezed,
     Object? auth = freezed,
@@ -571,6 +580,10 @@ class __$$_ListCommunitiesCopyWithImpl<$Res>
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
               as SortType?,
+      showNsfw: freezed == showNsfw
+          ? _value.showNsfw
+          : showNsfw // ignore: cast_nullable_to_non_nullable
+              as bool?,
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -594,6 +607,7 @@ class _$_ListCommunities extends _ListCommunities {
   const _$_ListCommunities(
       {@JsonKey(name: 'type_') this.type,
       this.sort,
+      this.showNsfw,
       this.page,
       this.limit,
       this.auth})
@@ -608,6 +622,8 @@ class _$_ListCommunities extends _ListCommunities {
   @override
   final SortType? sort;
   @override
+  final bool? showNsfw;
+  @override
   final int? page;
   @override
   final int? limit;
@@ -616,7 +632,7 @@ class _$_ListCommunities extends _ListCommunities {
 
   @override
   String toString() {
-    return 'ListCommunities(type: $type, sort: $sort, page: $page, limit: $limit, auth: $auth)';
+    return 'ListCommunities(type: $type, sort: $sort, showNsfw: $showNsfw, page: $page, limit: $limit, auth: $auth)';
   }
 
   @override
@@ -626,6 +642,8 @@ class _$_ListCommunities extends _ListCommunities {
             other is _$_ListCommunities &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.sort, sort) || other.sort == sort) &&
+            (identical(other.showNsfw, showNsfw) ||
+                other.showNsfw == showNsfw) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.auth, auth) || other.auth == auth));
@@ -633,7 +651,8 @@ class _$_ListCommunities extends _ListCommunities {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, sort, page, limit, auth);
+  int get hashCode =>
+      Object.hash(runtimeType, type, sort, showNsfw, page, limit, auth);
 
   @JsonKey(ignore: true)
   @override
@@ -653,6 +672,7 @@ abstract class _ListCommunities extends ListCommunities {
   const factory _ListCommunities(
       {@JsonKey(name: 'type_') final PostListingType? type,
       final SortType? sort,
+      final bool? showNsfw,
       final int? page,
       final int? limit,
       final String? auth}) = _$_ListCommunities;
@@ -666,6 +686,8 @@ abstract class _ListCommunities extends ListCommunities {
   PostListingType? get type;
   @override
   SortType? get sort;
+  @override
+  bool? get showNsfw;
   @override
   int? get page;
   @override

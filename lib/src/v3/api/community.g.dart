@@ -67,6 +67,7 @@ _$_ListCommunities _$$_ListCommunitiesFromJson(Map<String, dynamic> json) =>
       sort: json['sort'] == null
           ? null
           : SortType.fromJson(json['sort'] as String),
+      showNsfw: json['show_nsfw'] as bool?,
       page: json['page'] as int?,
       limit: json['limit'] as int?,
       auth: json['auth'] as String?,
@@ -83,6 +84,7 @@ Map<String, dynamic> _$$_ListCommunitiesToJson(_$_ListCommunities instance) {
 
   writeNotNull('type_', instance.type?.toJson());
   writeNotNull('sort', instance.sort?.toJson());
+  writeNotNull('show_nsfw', instance.showNsfw);
   writeNotNull('page', instance.page);
   writeNotNull('limit', instance.limit);
   writeNotNull('auth', instance.auth);

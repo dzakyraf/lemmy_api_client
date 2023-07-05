@@ -66,6 +66,8 @@ _$_PostAggregates _$$_PostAggregatesFromJson(Map<String, dynamic> json) =>
           .fromJson(json['newest_comment_time'] as String),
       newestCommentTimeNecro: const ForceUtcDateTime()
           .fromJson(json['newest_comment_time_necro'] as String),
+      hotRank: json['hot_rank'] as int?,
+      hotRankActive: json['hot_rank_active'] as int?,
     );
 
 Map<String, dynamic> _$$_PostAggregatesToJson(_$_PostAggregates instance) =>
@@ -80,6 +82,8 @@ Map<String, dynamic> _$$_PostAggregatesToJson(_$_PostAggregates instance) =>
           const ForceUtcDateTime().toJson(instance.newestCommentTime),
       'newest_comment_time_necro':
           const ForceUtcDateTime().toJson(instance.newestCommentTimeNecro),
+      'hot_rank': instance.hotRank,
+      'hot_rank_active': instance.hotRankActive,
     };
 
 _$_CommunityAggregates _$$_CommunityAggregatesFromJson(
@@ -94,6 +98,7 @@ _$_CommunityAggregates _$$_CommunityAggregatesFromJson(
       usersActiveWeek: json['users_active_week'] as int,
       usersActiveMonth: json['users_active_month'] as int,
       usersActiveHalfYear: json['users_active_half_year'] as int,
+      hotRank: json['hot_rank'] as int?,
     );
 
 Map<String, dynamic> _$$_CommunityAggregatesToJson(
@@ -108,6 +113,7 @@ Map<String, dynamic> _$$_CommunityAggregatesToJson(
       'users_active_week': instance.usersActiveWeek,
       'users_active_month': instance.usersActiveMonth,
       'users_active_half_year': instance.usersActiveHalfYear,
+      'hot_rank': instance.hotRank,
     };
 
 _$_CommentAggregates _$$_CommentAggregatesFromJson(Map<String, dynamic> json) =>
@@ -117,6 +123,8 @@ _$_CommentAggregates _$$_CommentAggregatesFromJson(Map<String, dynamic> json) =>
       score: json['score'] as int,
       upvotes: json['upvotes'] as int,
       downvotes: json['downvotes'] as int,
+      childCount: json['child_count'] as int?,
+      hotRank: json['hot_rank'] as int?,
     );
 
 Map<String, dynamic> _$$_CommentAggregatesToJson(
@@ -127,4 +135,6 @@ Map<String, dynamic> _$$_CommentAggregatesToJson(
       'score': instance.score,
       'upvotes': instance.upvotes,
       'downvotes': instance.downvotes,
+      'child_count': instance.childCount,
+      'hot_rank': instance.hotRank,
     };

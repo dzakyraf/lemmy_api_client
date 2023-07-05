@@ -617,6 +617,8 @@ mixin _$PostAggregates {
   int get downvotes => throw _privateConstructorUsedError;
   DateTime get newestCommentTime => throw _privateConstructorUsedError;
   DateTime get newestCommentTimeNecro => throw _privateConstructorUsedError;
+  int? get hotRank => throw _privateConstructorUsedError;
+  int? get hotRankActive => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -638,7 +640,9 @@ abstract class $PostAggregatesCopyWith<$Res> {
       int upvotes,
       int downvotes,
       DateTime newestCommentTime,
-      DateTime newestCommentTimeNecro});
+      DateTime newestCommentTimeNecro,
+      int? hotRank,
+      int? hotRankActive});
 }
 
 /// @nodoc
@@ -662,6 +666,8 @@ class _$PostAggregatesCopyWithImpl<$Res, $Val extends PostAggregates>
     Object? downvotes = null,
     Object? newestCommentTime = null,
     Object? newestCommentTimeNecro = null,
+    Object? hotRank = freezed,
+    Object? hotRankActive = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -696,6 +702,14 @@ class _$PostAggregatesCopyWithImpl<$Res, $Val extends PostAggregates>
           ? _value.newestCommentTimeNecro
           : newestCommentTimeNecro // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      hotRank: freezed == hotRank
+          ? _value.hotRank
+          : hotRank // ignore: cast_nullable_to_non_nullable
+              as int?,
+      hotRankActive: freezed == hotRankActive
+          ? _value.hotRankActive
+          : hotRankActive // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -716,7 +730,9 @@ abstract class _$$_PostAggregatesCopyWith<$Res>
       int upvotes,
       int downvotes,
       DateTime newestCommentTime,
-      DateTime newestCommentTimeNecro});
+      DateTime newestCommentTimeNecro,
+      int? hotRank,
+      int? hotRankActive});
 }
 
 /// @nodoc
@@ -738,6 +754,8 @@ class __$$_PostAggregatesCopyWithImpl<$Res>
     Object? downvotes = null,
     Object? newestCommentTime = null,
     Object? newestCommentTimeNecro = null,
+    Object? hotRank = freezed,
+    Object? hotRankActive = freezed,
   }) {
     return _then(_$_PostAggregates(
       id: null == id
@@ -772,6 +790,14 @@ class __$$_PostAggregatesCopyWithImpl<$Res>
           ? _value.newestCommentTimeNecro
           : newestCommentTimeNecro // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      hotRank: freezed == hotRank
+          ? _value.hotRank
+          : hotRank // ignore: cast_nullable_to_non_nullable
+              as int?,
+      hotRankActive: freezed == hotRankActive
+          ? _value.hotRankActive
+          : hotRankActive // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -788,7 +814,9 @@ class _$_PostAggregates extends _PostAggregates {
       required this.upvotes,
       required this.downvotes,
       required this.newestCommentTime,
-      required this.newestCommentTimeNecro})
+      required this.newestCommentTimeNecro,
+      this.hotRank,
+      this.hotRankActive})
       : super._();
 
   factory _$_PostAggregates.fromJson(Map<String, dynamic> json) =>
@@ -810,10 +838,14 @@ class _$_PostAggregates extends _PostAggregates {
   final DateTime newestCommentTime;
   @override
   final DateTime newestCommentTimeNecro;
+  @override
+  final int? hotRank;
+  @override
+  final int? hotRankActive;
 
   @override
   String toString() {
-    return 'PostAggregates(id: $id, postId: $postId, comments: $comments, score: $score, upvotes: $upvotes, downvotes: $downvotes, newestCommentTime: $newestCommentTime, newestCommentTimeNecro: $newestCommentTimeNecro)';
+    return 'PostAggregates(id: $id, postId: $postId, comments: $comments, score: $score, upvotes: $upvotes, downvotes: $downvotes, newestCommentTime: $newestCommentTime, newestCommentTimeNecro: $newestCommentTimeNecro, hotRank: $hotRank, hotRankActive: $hotRankActive)';
   }
 
   @override
@@ -832,13 +864,26 @@ class _$_PostAggregates extends _PostAggregates {
             (identical(other.newestCommentTime, newestCommentTime) ||
                 other.newestCommentTime == newestCommentTime) &&
             (identical(other.newestCommentTimeNecro, newestCommentTimeNecro) ||
-                other.newestCommentTimeNecro == newestCommentTimeNecro));
+                other.newestCommentTimeNecro == newestCommentTimeNecro) &&
+            (identical(other.hotRank, hotRank) || other.hotRank == hotRank) &&
+            (identical(other.hotRankActive, hotRankActive) ||
+                other.hotRankActive == hotRankActive));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, postId, comments, score,
-      upvotes, downvotes, newestCommentTime, newestCommentTimeNecro);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      postId,
+      comments,
+      score,
+      upvotes,
+      downvotes,
+      newestCommentTime,
+      newestCommentTimeNecro,
+      hotRank,
+      hotRankActive);
 
   @JsonKey(ignore: true)
   @override
@@ -863,7 +908,9 @@ abstract class _PostAggregates extends PostAggregates {
       required final int upvotes,
       required final int downvotes,
       required final DateTime newestCommentTime,
-      required final DateTime newestCommentTimeNecro}) = _$_PostAggregates;
+      required final DateTime newestCommentTimeNecro,
+      final int? hotRank,
+      final int? hotRankActive}) = _$_PostAggregates;
   const _PostAggregates._() : super._();
 
   factory _PostAggregates.fromJson(Map<String, dynamic> json) =
@@ -886,6 +933,10 @@ abstract class _PostAggregates extends PostAggregates {
   @override
   DateTime get newestCommentTimeNecro;
   @override
+  int? get hotRank;
+  @override
+  int? get hotRankActive;
+  @override
   @JsonKey(ignore: true)
   _$$_PostAggregatesCopyWith<_$_PostAggregates> get copyWith =>
       throw _privateConstructorUsedError;
@@ -906,6 +957,7 @@ mixin _$CommunityAggregates {
   int get usersActiveWeek => throw _privateConstructorUsedError;
   int get usersActiveMonth => throw _privateConstructorUsedError;
   int get usersActiveHalfYear => throw _privateConstructorUsedError;
+  int? get hotRank => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -928,7 +980,8 @@ abstract class $CommunityAggregatesCopyWith<$Res> {
       int usersActiveDay,
       int usersActiveWeek,
       int usersActiveMonth,
-      int usersActiveHalfYear});
+      int usersActiveHalfYear,
+      int? hotRank});
 }
 
 /// @nodoc
@@ -953,6 +1006,7 @@ class _$CommunityAggregatesCopyWithImpl<$Res, $Val extends CommunityAggregates>
     Object? usersActiveWeek = null,
     Object? usersActiveMonth = null,
     Object? usersActiveHalfYear = null,
+    Object? hotRank = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -991,6 +1045,10 @@ class _$CommunityAggregatesCopyWithImpl<$Res, $Val extends CommunityAggregates>
           ? _value.usersActiveHalfYear
           : usersActiveHalfYear // ignore: cast_nullable_to_non_nullable
               as int,
+      hotRank: freezed == hotRank
+          ? _value.hotRank
+          : hotRank // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -1012,7 +1070,8 @@ abstract class _$$_CommunityAggregatesCopyWith<$Res>
       int usersActiveDay,
       int usersActiveWeek,
       int usersActiveMonth,
-      int usersActiveHalfYear});
+      int usersActiveHalfYear,
+      int? hotRank});
 }
 
 /// @nodoc
@@ -1035,6 +1094,7 @@ class __$$_CommunityAggregatesCopyWithImpl<$Res>
     Object? usersActiveWeek = null,
     Object? usersActiveMonth = null,
     Object? usersActiveHalfYear = null,
+    Object? hotRank = freezed,
   }) {
     return _then(_$_CommunityAggregates(
       id: null == id
@@ -1073,6 +1133,10 @@ class __$$_CommunityAggregatesCopyWithImpl<$Res>
           ? _value.usersActiveHalfYear
           : usersActiveHalfYear // ignore: cast_nullable_to_non_nullable
               as int,
+      hotRank: freezed == hotRank
+          ? _value.hotRank
+          : hotRank // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1090,7 +1154,8 @@ class _$_CommunityAggregates extends _CommunityAggregates {
       required this.usersActiveDay,
       required this.usersActiveWeek,
       required this.usersActiveMonth,
-      required this.usersActiveHalfYear})
+      required this.usersActiveHalfYear,
+      this.hotRank})
       : super._();
 
   factory _$_CommunityAggregates.fromJson(Map<String, dynamic> json) =>
@@ -1114,10 +1179,12 @@ class _$_CommunityAggregates extends _CommunityAggregates {
   final int usersActiveMonth;
   @override
   final int usersActiveHalfYear;
+  @override
+  final int? hotRank;
 
   @override
   String toString() {
-    return 'CommunityAggregates(id: $id, communityId: $communityId, subscribers: $subscribers, posts: $posts, comments: $comments, usersActiveDay: $usersActiveDay, usersActiveWeek: $usersActiveWeek, usersActiveMonth: $usersActiveMonth, usersActiveHalfYear: $usersActiveHalfYear)';
+    return 'CommunityAggregates(id: $id, communityId: $communityId, subscribers: $subscribers, posts: $posts, comments: $comments, usersActiveDay: $usersActiveDay, usersActiveWeek: $usersActiveWeek, usersActiveMonth: $usersActiveMonth, usersActiveHalfYear: $usersActiveHalfYear, hotRank: $hotRank)';
   }
 
   @override
@@ -1140,7 +1207,8 @@ class _$_CommunityAggregates extends _CommunityAggregates {
             (identical(other.usersActiveMonth, usersActiveMonth) ||
                 other.usersActiveMonth == usersActiveMonth) &&
             (identical(other.usersActiveHalfYear, usersActiveHalfYear) ||
-                other.usersActiveHalfYear == usersActiveHalfYear));
+                other.usersActiveHalfYear == usersActiveHalfYear) &&
+            (identical(other.hotRank, hotRank) || other.hotRank == hotRank));
   }
 
   @JsonKey(ignore: true)
@@ -1155,7 +1223,8 @@ class _$_CommunityAggregates extends _CommunityAggregates {
       usersActiveDay,
       usersActiveWeek,
       usersActiveMonth,
-      usersActiveHalfYear);
+      usersActiveHalfYear,
+      hotRank);
 
   @JsonKey(ignore: true)
   @override
@@ -1182,7 +1251,8 @@ abstract class _CommunityAggregates extends CommunityAggregates {
       required final int usersActiveDay,
       required final int usersActiveWeek,
       required final int usersActiveMonth,
-      required final int usersActiveHalfYear}) = _$_CommunityAggregates;
+      required final int usersActiveHalfYear,
+      final int? hotRank}) = _$_CommunityAggregates;
   const _CommunityAggregates._() : super._();
 
   factory _CommunityAggregates.fromJson(Map<String, dynamic> json) =
@@ -1207,6 +1277,8 @@ abstract class _CommunityAggregates extends CommunityAggregates {
   @override
   int get usersActiveHalfYear;
   @override
+  int? get hotRank;
+  @override
   @JsonKey(ignore: true)
   _$$_CommunityAggregatesCopyWith<_$_CommunityAggregates> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1223,6 +1295,8 @@ mixin _$CommentAggregates {
   int get score => throw _privateConstructorUsedError;
   int get upvotes => throw _privateConstructorUsedError;
   int get downvotes => throw _privateConstructorUsedError;
+  int? get childCount => throw _privateConstructorUsedError;
+  int? get hotRank => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1236,7 +1310,14 @@ abstract class $CommentAggregatesCopyWith<$Res> {
           CommentAggregates value, $Res Function(CommentAggregates) then) =
       _$CommentAggregatesCopyWithImpl<$Res, CommentAggregates>;
   @useResult
-  $Res call({int id, int commentId, int score, int upvotes, int downvotes});
+  $Res call(
+      {int id,
+      int commentId,
+      int score,
+      int upvotes,
+      int downvotes,
+      int? childCount,
+      int? hotRank});
 }
 
 /// @nodoc
@@ -1257,6 +1338,8 @@ class _$CommentAggregatesCopyWithImpl<$Res, $Val extends CommentAggregates>
     Object? score = null,
     Object? upvotes = null,
     Object? downvotes = null,
+    Object? childCount = freezed,
+    Object? hotRank = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -1279,6 +1362,14 @@ class _$CommentAggregatesCopyWithImpl<$Res, $Val extends CommentAggregates>
           ? _value.downvotes
           : downvotes // ignore: cast_nullable_to_non_nullable
               as int,
+      childCount: freezed == childCount
+          ? _value.childCount
+          : childCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      hotRank: freezed == hotRank
+          ? _value.hotRank
+          : hotRank // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -1291,7 +1382,14 @@ abstract class _$$_CommentAggregatesCopyWith<$Res>
       __$$_CommentAggregatesCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, int commentId, int score, int upvotes, int downvotes});
+  $Res call(
+      {int id,
+      int commentId,
+      int score,
+      int upvotes,
+      int downvotes,
+      int? childCount,
+      int? hotRank});
 }
 
 /// @nodoc
@@ -1310,6 +1408,8 @@ class __$$_CommentAggregatesCopyWithImpl<$Res>
     Object? score = null,
     Object? upvotes = null,
     Object? downvotes = null,
+    Object? childCount = freezed,
+    Object? hotRank = freezed,
   }) {
     return _then(_$_CommentAggregates(
       id: null == id
@@ -1332,6 +1432,14 @@ class __$$_CommentAggregatesCopyWithImpl<$Res>
           ? _value.downvotes
           : downvotes // ignore: cast_nullable_to_non_nullable
               as int,
+      childCount: freezed == childCount
+          ? _value.childCount
+          : childCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      hotRank: freezed == hotRank
+          ? _value.hotRank
+          : hotRank // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1345,7 +1453,9 @@ class _$_CommentAggregates extends _CommentAggregates {
       required this.commentId,
       required this.score,
       required this.upvotes,
-      required this.downvotes})
+      required this.downvotes,
+      this.childCount,
+      this.hotRank})
       : super._();
 
   factory _$_CommentAggregates.fromJson(Map<String, dynamic> json) =>
@@ -1361,10 +1471,14 @@ class _$_CommentAggregates extends _CommentAggregates {
   final int upvotes;
   @override
   final int downvotes;
+  @override
+  final int? childCount;
+  @override
+  final int? hotRank;
 
   @override
   String toString() {
-    return 'CommentAggregates(id: $id, commentId: $commentId, score: $score, upvotes: $upvotes, downvotes: $downvotes)';
+    return 'CommentAggregates(id: $id, commentId: $commentId, score: $score, upvotes: $upvotes, downvotes: $downvotes, childCount: $childCount, hotRank: $hotRank)';
   }
 
   @override
@@ -1378,13 +1492,16 @@ class _$_CommentAggregates extends _CommentAggregates {
             (identical(other.score, score) || other.score == score) &&
             (identical(other.upvotes, upvotes) || other.upvotes == upvotes) &&
             (identical(other.downvotes, downvotes) ||
-                other.downvotes == downvotes));
+                other.downvotes == downvotes) &&
+            (identical(other.childCount, childCount) ||
+                other.childCount == childCount) &&
+            (identical(other.hotRank, hotRank) || other.hotRank == hotRank));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, commentId, score, upvotes, downvotes);
+  int get hashCode => Object.hash(runtimeType, id, commentId, score, upvotes,
+      downvotes, childCount, hotRank);
 
   @JsonKey(ignore: true)
   @override
@@ -1407,7 +1524,9 @@ abstract class _CommentAggregates extends CommentAggregates {
       required final int commentId,
       required final int score,
       required final int upvotes,
-      required final int downvotes}) = _$_CommentAggregates;
+      required final int downvotes,
+      final int? childCount,
+      final int? hotRank}) = _$_CommentAggregates;
   const _CommentAggregates._() : super._();
 
   factory _CommentAggregates.fromJson(Map<String, dynamic> json) =
@@ -1423,6 +1542,10 @@ abstract class _CommentAggregates extends CommentAggregates {
   int get upvotes;
   @override
   int get downvotes;
+  @override
+  int? get childCount;
+  @override
+  int? get hotRank;
   @override
   @JsonKey(ignore: true)
   _$$_CommentAggregatesCopyWith<_$_CommentAggregates> get copyWith =>

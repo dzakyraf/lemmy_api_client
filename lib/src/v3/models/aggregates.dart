@@ -47,16 +47,17 @@ class SiteAggregates with _$SiteAggregates {
 @freezed
 class PostAggregates with _$PostAggregates {
   @modelSerde
-  const factory PostAggregates({
-    required int id,
-    required int postId,
-    required int comments,
-    required int score,
-    required int upvotes,
-    required int downvotes,
-    required DateTime newestCommentTime,
-    required DateTime newestCommentTimeNecro,
-  }) = _PostAggregates;
+  const factory PostAggregates(
+      {required int id,
+      required int postId,
+      required int comments,
+      required int score,
+      required int upvotes,
+      required int downvotes,
+      required DateTime newestCommentTime,
+      required DateTime newestCommentTimeNecro,
+      int? hotRank,
+      int? hotRankActive}) = _PostAggregates;
 
   const PostAggregates._();
   factory PostAggregates.fromJson(Map<String, dynamic> json) =>
@@ -76,6 +77,7 @@ class CommunityAggregates with _$CommunityAggregates {
     required int usersActiveWeek,
     required int usersActiveMonth,
     required int usersActiveHalfYear,
+    int? hotRank,
   }) = _CommunityAggregates;
 
   const CommunityAggregates._();
@@ -92,6 +94,8 @@ class CommentAggregates with _$CommentAggregates {
     required int score,
     required int upvotes,
     required int downvotes,
+    int? childCount,
+    int? hotRank,
   }) = _CommentAggregates;
 
   const CommentAggregates._();
