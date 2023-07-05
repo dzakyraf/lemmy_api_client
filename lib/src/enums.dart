@@ -71,7 +71,13 @@ enum SortType {
   topYear('TopYear'),
   topAll('TopAll'),
   mostComments('MostComments'),
-  newComments('NewComments');
+  newComments('NewComments'),
+  TopSixHour('TopSixHour'),
+  TopTwelveHour('TopTwelveHour'),
+  TopThreeMonths('TopThreeMonths'),
+  TopSixMonths('TopSixMonths'),
+  TopNineMonths('TopNineMonths'),
+  ;
 
   final String value;
   const SortType(this.value);
