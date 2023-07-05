@@ -73,6 +73,7 @@ class ListCommunities
   const factory ListCommunities({
     @JsonKey(name: 'type_') PostListingType? type,
     SortType? sort,
+    bool? showNsfw,
     int? page,
     int? limit,
     String? auth,
