@@ -633,9 +633,10 @@ abstract class $SaveUserSettingsCopyWith<$Res> {
       {bool? showNsfw,
       String? theme,
       @JsonKey(fromJson: sortTypeFromIndex, toJson: sortTypeToIndex)
-          SortType? defaultSortType,
-      @JsonKey(fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
-          PostListingType? defaultListingType,
+      SortType? defaultSortType,
+      @JsonKey(
+          fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
+      PostListingType? defaultListingType,
       String? interfaceLanguage,
       String? avatar,
       String? banner,
@@ -785,9 +786,10 @@ abstract class _$$_SaveUserSettingsCopyWith<$Res>
       {bool? showNsfw,
       String? theme,
       @JsonKey(fromJson: sortTypeFromIndex, toJson: sortTypeToIndex)
-          SortType? defaultSortType,
-      @JsonKey(fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
-          PostListingType? defaultListingType,
+      SortType? defaultSortType,
+      @JsonKey(
+          fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
+      PostListingType? defaultListingType,
       String? interfaceLanguage,
       String? avatar,
       String? banner,
@@ -931,9 +933,10 @@ class _$_SaveUserSettings extends _SaveUserSettings {
       {this.showNsfw,
       this.theme,
       @JsonKey(fromJson: sortTypeFromIndex, toJson: sortTypeToIndex)
-          this.defaultSortType,
-      @JsonKey(fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
-          this.defaultListingType,
+      this.defaultSortType,
+      @JsonKey(
+          fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
+      this.defaultListingType,
       this.interfaceLanguage,
       this.avatar,
       this.banner,
@@ -1090,9 +1093,10 @@ abstract class _SaveUserSettings extends SaveUserSettings {
       {final bool? showNsfw,
       final String? theme,
       @JsonKey(fromJson: sortTypeFromIndex, toJson: sortTypeToIndex)
-          final SortType? defaultSortType,
-      @JsonKey(fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
-          final PostListingType? defaultListingType,
+      final SortType? defaultSortType,
+      @JsonKey(
+          fromJson: postListingTypeFromIndex, toJson: postListingTypeToIndex)
+      final PostListingType? defaultListingType,
       final String? interfaceLanguage,
       final String? avatar,
       final String? banner,

@@ -72,6 +72,7 @@ enum SortType {
   topAll('TopAll'),
   mostComments('MostComments'),
   newComments('NewComments'),
+  topHour('TopHour'),
   TopSixHour('TopSixHour'),
   TopTwelveHour('TopTwelveHour'),
   TopThreeMonths('TopThreeMonths'),

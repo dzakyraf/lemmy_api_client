@@ -1,5 +1,5 @@
 name: lemmy_api_client2
-version: 0.38.0
+version: 0.39.0
 homepage: https://github.com/79623798464325/lemmy_api_client
 description: Fork of a Future-based http client for the Lemmy API. Provides an easy interface and statically typed responses.
 
