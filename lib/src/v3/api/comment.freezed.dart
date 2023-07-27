@@ -1331,6 +1331,161 @@ abstract class _CreateCommentLike extends CreateCommentLike {
       throw _privateConstructorUsedError;
 }
 
+GetComment _$GetCommentFromJson(Map<String, dynamic> json) {
+  return _GetComment.fromJson(json);
+}
+
+/// @nodoc
+mixin _$GetComment {
+  int get id => throw _privateConstructorUsedError;
+  String? get auth => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetCommentCopyWith<GetComment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetCommentCopyWith<$Res> {
+  factory $GetCommentCopyWith(
+          GetComment value, $Res Function(GetComment) then) =
+      _$GetCommentCopyWithImpl<$Res, GetComment>;
+  @useResult
+  $Res call({int id, String? auth});
+}
+
+/// @nodoc
+class _$GetCommentCopyWithImpl<$Res, $Val extends GetComment>
+    implements $GetCommentCopyWith<$Res> {
+  _$GetCommentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? auth = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      auth: freezed == auth
+          ? _value.auth
+          : auth // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_GetCommentCopyWith<$Res>
+    implements $GetCommentCopyWith<$Res> {
+  factory _$$_GetCommentCopyWith(
+          _$_GetComment value, $Res Function(_$_GetComment) then) =
+      __$$_GetCommentCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id, String? auth});
+}
+
+/// @nodoc
+class __$$_GetCommentCopyWithImpl<$Res>
+    extends _$GetCommentCopyWithImpl<$Res, _$_GetComment>
+    implements _$$_GetCommentCopyWith<$Res> {
+  __$$_GetCommentCopyWithImpl(
+      _$_GetComment _value, $Res Function(_$_GetComment) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? auth = freezed,
+  }) {
+    return _then(_$_GetComment(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      auth: freezed == auth
+          ? _value.auth
+          : auth // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+@apiSerde
+class _$_GetComment extends _GetComment {
+  const _$_GetComment({required this.id, this.auth}) : super._();
+
+  factory _$_GetComment.fromJson(Map<String, dynamic> json) =>
+      _$$_GetCommentFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final String? auth;
+
+  @override
+  String toString() {
+    return 'GetComment(id: $id, auth: $auth)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetComment &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.auth, auth) || other.auth == auth));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, auth);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetCommentCopyWith<_$_GetComment> get copyWith =>
+      __$$_GetCommentCopyWithImpl<_$_GetComment>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_GetCommentToJson(
+      this,
+    );
+  }
+}
+
+abstract class _GetComment extends GetComment {
+  const factory _GetComment({required final int id, final String? auth}) =
+      _$_GetComment;
+  const _GetComment._() : super._();
+
+  factory _GetComment.fromJson(Map<String, dynamic> json) =
+      _$_GetComment.fromJson;
+
+  @override
+  int get id;
+  @override
+  String? get auth;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetCommentCopyWith<_$_GetComment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 GetComments _$GetCommentsFromJson(Map<String, dynamic> json) {
   return _GetComments.fromJson(json);
 }
@@ -1340,7 +1495,6 @@ mixin _$GetComments {
   @JsonKey(name: 'type_')
   CommentListingType? get type => throw _privateConstructorUsedError;
   CommentSortType? get sort => throw _privateConstructorUsedError;
-  int? get maxDepth => throw _privateConstructorUsedError;
   int? get page => throw _privateConstructorUsedError;
   int? get limit => throw _privateConstructorUsedError;
   int? get communityId => throw _privateConstructorUsedError;
@@ -1349,6 +1503,7 @@ mixin _$GetComments {
   int? get parentId => throw _privateConstructorUsedError;
   bool? get savedOnly => throw _privateConstructorUsedError;
   String? get auth => throw _privateConstructorUsedError;
+  int? get maxDepth => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1365,7 +1520,6 @@ abstract class $GetCommentsCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'type_') CommentListingType? type,
       CommentSortType? sort,
-      int? maxDepth,
       int? page,
       int? limit,
       int? communityId,
@@ -1373,7 +1527,8 @@ abstract class $GetCommentsCopyWith<$Res> {
       int? postId,
       int? parentId,
       bool? savedOnly,
-      String? auth});
+      String? auth,
+      int? maxDepth});
 }
 
 /// @nodoc
@@ -1391,7 +1546,6 @@ class _$GetCommentsCopyWithImpl<$Res, $Val extends GetComments>
   $Res call({
     Object? type = freezed,
     Object? sort = freezed,
-    Object? maxDepth = freezed,
     Object? page = freezed,
     Object? limit = freezed,
     Object? communityId = freezed,
@@ -1400,6 +1554,7 @@ class _$GetCommentsCopyWithImpl<$Res, $Val extends GetComments>
     Object? parentId = freezed,
     Object? savedOnly = freezed,
     Object? auth = freezed,
+    Object? maxDepth = freezed,
   }) {
     return _then(_value.copyWith(
       type: freezed == type
@@ -1410,10 +1565,6 @@ class _$GetCommentsCopyWithImpl<$Res, $Val extends GetComments>
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
               as CommentSortType?,
-      maxDepth: freezed == maxDepth
-          ? _value.maxDepth
-          : maxDepth // ignore: cast_nullable_to_non_nullable
-              as int?,
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -1446,6 +1597,10 @@ class _$GetCommentsCopyWithImpl<$Res, $Val extends GetComments>
           ? _value.auth
           : auth // ignore: cast_nullable_to_non_nullable
               as String?,
+      maxDepth: freezed == maxDepth
+          ? _value.maxDepth
+          : maxDepth // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -1461,7 +1616,6 @@ abstract class _$$_GetCommentsCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'type_') CommentListingType? type,
       CommentSortType? sort,
-      int? maxDepth,
       int? page,
       int? limit,
       int? communityId,
@@ -1469,7 +1623,8 @@ abstract class _$$_GetCommentsCopyWith<$Res>
       int? postId,
       int? parentId,
       bool? savedOnly,
-      String? auth});
+      String? auth,
+      int? maxDepth});
 }
 
 /// @nodoc
@@ -1485,7 +1640,6 @@ class __$$_GetCommentsCopyWithImpl<$Res>
   $Res call({
     Object? type = freezed,
     Object? sort = freezed,
-    Object? maxDepth = freezed,
     Object? page = freezed,
     Object? limit = freezed,
     Object? communityId = freezed,
@@ -1494,6 +1648,7 @@ class __$$_GetCommentsCopyWithImpl<$Res>
     Object? parentId = freezed,
     Object? savedOnly = freezed,
     Object? auth = freezed,
+    Object? maxDepth = freezed,
   }) {
     return _then(_$_GetComments(
       type: freezed == type
@@ -1504,10 +1659,6 @@ class __$$_GetCommentsCopyWithImpl<$Res>
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
               as CommentSortType?,
-      maxDepth: freezed == maxDepth
-          ? _value.maxDepth
-          : maxDepth // ignore: cast_nullable_to_non_nullable
-              as int?,
       page: freezed == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -1540,6 +1691,10 @@ class __$$_GetCommentsCopyWithImpl<$Res>
           ? _value.auth
           : auth // ignore: cast_nullable_to_non_nullable
               as String?,
+      maxDepth: freezed == maxDepth
+          ? _value.maxDepth
+          : maxDepth // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1551,7 +1706,6 @@ class _$_GetComments extends _GetComments {
   const _$_GetComments(
       {@JsonKey(name: 'type_') this.type,
       this.sort,
-      this.maxDepth,
       this.page,
       this.limit,
       this.communityId,
@@ -1559,7 +1713,8 @@ class _$_GetComments extends _GetComments {
       this.postId,
       this.parentId,
       this.savedOnly,
-      this.auth})
+      this.auth,
+      this.maxDepth})
       : super._();
 
   factory _$_GetComments.fromJson(Map<String, dynamic> json) =>
@@ -1570,8 +1725,6 @@ class _$_GetComments extends _GetComments {
   final CommentListingType? type;
   @override
   final CommentSortType? sort;
-  @override
-  final int? maxDepth;
   @override
   final int? page;
   @override
@@ -1588,10 +1741,12 @@ class _$_GetComments extends _GetComments {
   final bool? savedOnly;
   @override
   final String? auth;
+  @override
+  final int? maxDepth;
 
   @override
   String toString() {
-    return 'GetComments(type: $type, sort: $sort, maxDepth: $maxDepth, page: $page, limit: $limit, communityId: $communityId, communityName: $communityName, postId: $postId, parentId: $parentId, savedOnly: $savedOnly, auth: $auth)';
+    return 'GetComments(type: $type, sort: $sort, page: $page, limit: $limit, communityId: $communityId, communityName: $communityName, postId: $postId, parentId: $parentId, savedOnly: $savedOnly, auth: $auth, maxDepth: $maxDepth)';
   }
 
   @override
@@ -1601,8 +1756,6 @@ class _$_GetComments extends _GetComments {
             other is _$_GetComments &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.sort, sort) || other.sort == sort) &&
-            (identical(other.maxDepth, maxDepth) ||
-                other.maxDepth == maxDepth) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.communityId, communityId) ||
@@ -1614,13 +1767,15 @@ class _$_GetComments extends _GetComments {
                 other.parentId == parentId) &&
             (identical(other.savedOnly, savedOnly) ||
                 other.savedOnly == savedOnly) &&
-            (identical(other.auth, auth) || other.auth == auth));
+            (identical(other.auth, auth) || other.auth == auth) &&
+            (identical(other.maxDepth, maxDepth) ||
+                other.maxDepth == maxDepth));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, sort, maxDepth, page,
-      limit, communityId, communityName, postId, parentId, savedOnly, auth);
+  int get hashCode => Object.hash(runtimeType, type, sort, page, limit,
+      communityId, communityName, postId, parentId, savedOnly, auth, maxDepth);
 
   @JsonKey(ignore: true)
   @override
@@ -1640,7 +1795,6 @@ abstract class _GetComments extends GetComments {
   const factory _GetComments(
       {@JsonKey(name: 'type_') final CommentListingType? type,
       final CommentSortType? sort,
-      final int? maxDepth,
       final int? page,
       final int? limit,
       final int? communityId,
@@ -1648,7 +1802,8 @@ abstract class _GetComments extends GetComments {
       final int? postId,
       final int? parentId,
       final bool? savedOnly,
-      final String? auth}) = _$_GetComments;
+      final String? auth,
+      final int? maxDepth}) = _$_GetComments;
   const _GetComments._() : super._();
 
   factory _GetComments.fromJson(Map<String, dynamic> json) =
@@ -1659,8 +1814,6 @@ abstract class _GetComments extends GetComments {
   CommentListingType? get type;
   @override
   CommentSortType? get sort;
-  @override
-  int? get maxDepth;
   @override
   int? get page;
   @override
@@ -1677,6 +1830,8 @@ abstract class _GetComments extends GetComments {
   bool? get savedOnly;
   @override
   String? get auth;
+  @override
+  int? get maxDepth;
   @override
   @JsonKey(ignore: true)
   _$$_GetCommentsCopyWith<_$_GetComments> get copyWith =>

@@ -141,6 +141,27 @@ Map<String, dynamic> _$$_CreateCommentLikeToJson(
       'auth': instance.auth,
     };
 
+_$_GetComment _$$_GetCommentFromJson(Map<String, dynamic> json) =>
+    _$_GetComment(
+      id: json['id'] as int,
+      auth: json['auth'] as String?,
+    );
+
+Map<String, dynamic> _$$_GetCommentToJson(_$_GetComment instance) {
+  final val = <String, dynamic>{
+    'id': instance.id,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('auth', instance.auth);
+  return val;
+}
+
 _$_GetComments _$$_GetCommentsFromJson(Map<String, dynamic> json) =>
     _$_GetComments(
       type: json['type_'] == null
@@ -149,7 +170,6 @@ _$_GetComments _$$_GetCommentsFromJson(Map<String, dynamic> json) =>
       sort: json['sort'] == null
           ? null
           : CommentSortType.fromJson(json['sort'] as String),
-      maxDepth: json['max_depth'] as int?,
       page: json['page'] as int?,
       limit: json['limit'] as int?,
       communityId: json['community_id'] as int?,
@@ -158,6 +178,7 @@ _$_GetComments _$$_GetCommentsFromJson(Map<String, dynamic> json) =>
       parentId: json['parent_id'] as int?,
       savedOnly: json['saved_only'] as bool?,
       auth: json['auth'] as String?,
+      maxDepth: json['max_depth'] as int?,
     );
 
 Map<String, dynamic> _$$_GetCommentsToJson(_$_GetComments instance) {
@@ -171,7 +192,6 @@ Map<String, dynamic> _$$_GetCommentsToJson(_$_GetComments instance) {
 
   writeNotNull('type_', instance.type?.toJson());
   writeNotNull('sort', instance.sort?.toJson());
-  writeNotNull('max_depth', instance.maxDepth);
   writeNotNull('page', instance.page);
   writeNotNull('limit', instance.limit);
   writeNotNull('community_id', instance.communityId);
@@ -180,6 +200,7 @@ Map<String, dynamic> _$$_GetCommentsToJson(_$_GetComments instance) {
   writeNotNull('parent_id', instance.parentId);
   writeNotNull('saved_only', instance.savedOnly);
   writeNotNull('auth', instance.auth);
+  writeNotNull('max_depth', instance.maxDepth);
   return val;
 }
 
