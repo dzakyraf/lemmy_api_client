@@ -22,7 +22,6 @@ _$_PersonSafe _$$_PersonSafeFromJson(Map<String, dynamic> json) =>
       banner: json['banner'] as String?,
       deleted: json['deleted'] as bool,
       matrixUserId: json['matrix_user_id'] as String?,
-      admin: json['admin'] as bool,
       botAccount: json['bot_account'] as bool,
       banExpires: _$JsonConverterFromJson<String, DateTime>(
           json['ban_expires'], const ForceUtcDateTime().fromJson),
@@ -45,7 +44,6 @@ Map<String, dynamic> _$$_PersonSafeToJson(_$_PersonSafe instance) =>
       'banner': instance.banner,
       'deleted': instance.deleted,
       'matrix_user_id': instance.matrixUserId,
-      'admin': instance.admin,
       'bot_account': instance.botAccount,
       'ban_expires': _$JsonConverterToJson<String, DateTime>(
           instance.banExpires, const ForceUtcDateTime().toJson),

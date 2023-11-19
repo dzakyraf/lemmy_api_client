@@ -25,7 +25,6 @@ class PersonSafe with _$PersonSafe {
     String? banner,
     required bool deleted,
     String? matrixUserId,
-    required bool admin,
     required bool botAccount,
     DateTime? banExpires,
     required String instanceHost,

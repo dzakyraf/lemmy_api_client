@@ -10,12 +10,9 @@ part 'aggregates.g.dart';
 class PersonAggregates with _$PersonAggregates {
   @modelSerde
   const factory PersonAggregates({
-    required int id,
     required int personId,
     required int postCount,
-    required int postScore,
     required int commentCount,
-    required int commentScore,
   }) = _PersonAggregates;
 
   const PersonAggregates._();
@@ -27,7 +24,6 @@ class PersonAggregates with _$PersonAggregates {
 class SiteAggregates with _$SiteAggregates {
   @modelSerde
   const factory SiteAggregates({
-    required int id,
     required int siteId,
     required int users,
     required int posts,
@@ -48,16 +44,11 @@ class SiteAggregates with _$SiteAggregates {
 class PostAggregates with _$PostAggregates {
   @modelSerde
   const factory PostAggregates(
-      {required int id,
-      required int postId,
+      {required int postId,
       required int comments,
       required int score,
       required int upvotes,
-      required int downvotes,
-      required DateTime newestCommentTime,
-      required DateTime newestCommentTimeNecro,
-      int? hotRank,
-      int? hotRankActive}) = _PostAggregates;
+      required int downvotes}) = _PostAggregates;
 
   const PostAggregates._();
   factory PostAggregates.fromJson(Map<String, dynamic> json) =>
@@ -88,7 +79,6 @@ class CommunityAggregates with _$CommunityAggregates {
 class CommentAggregates with _$CommentAggregates {
   @modelSerde
   const factory CommentAggregates({
-    required int id,
     required int commentId,
     required int score,
     required int upvotes,

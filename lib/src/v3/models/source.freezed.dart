@@ -33,7 +33,6 @@ mixin _$PersonSafe {
   String? get banner => throw _privateConstructorUsedError;
   bool get deleted => throw _privateConstructorUsedError;
   String? get matrixUserId => throw _privateConstructorUsedError;
-  bool get admin => throw _privateConstructorUsedError;
   bool get botAccount => throw _privateConstructorUsedError;
   DateTime? get banExpires => throw _privateConstructorUsedError;
   String get instanceHost => throw _privateConstructorUsedError;
@@ -64,7 +63,6 @@ abstract class $PersonSafeCopyWith<$Res> {
       String? banner,
       bool deleted,
       String? matrixUserId,
-      bool admin,
       bool botAccount,
       DateTime? banExpires,
       String instanceHost});
@@ -96,7 +94,6 @@ class _$PersonSafeCopyWithImpl<$Res, $Val extends PersonSafe>
     Object? banner = freezed,
     Object? deleted = null,
     Object? matrixUserId = freezed,
-    Object? admin = null,
     Object? botAccount = null,
     Object? banExpires = freezed,
     Object? instanceHost = null,
@@ -154,10 +151,6 @@ class _$PersonSafeCopyWithImpl<$Res, $Val extends PersonSafe>
           ? _value.matrixUserId
           : matrixUserId // ignore: cast_nullable_to_non_nullable
               as String?,
-      admin: null == admin
-          ? _value.admin
-          : admin // ignore: cast_nullable_to_non_nullable
-              as bool,
       botAccount: null == botAccount
           ? _value.botAccount
           : botAccount // ignore: cast_nullable_to_non_nullable
@@ -196,7 +189,6 @@ abstract class _$$_PersonSafeCopyWith<$Res>
       String? banner,
       bool deleted,
       String? matrixUserId,
-      bool admin,
       bool botAccount,
       DateTime? banExpires,
       String instanceHost});
@@ -226,7 +218,6 @@ class __$$_PersonSafeCopyWithImpl<$Res>
     Object? banner = freezed,
     Object? deleted = null,
     Object? matrixUserId = freezed,
-    Object? admin = null,
     Object? botAccount = null,
     Object? banExpires = freezed,
     Object? instanceHost = null,
@@ -284,10 +275,6 @@ class __$$_PersonSafeCopyWithImpl<$Res>
           ? _value.matrixUserId
           : matrixUserId // ignore: cast_nullable_to_non_nullable
               as String?,
-      admin: null == admin
-          ? _value.admin
-          : admin // ignore: cast_nullable_to_non_nullable
-              as bool,
       botAccount: null == botAccount
           ? _value.botAccount
           : botAccount // ignore: cast_nullable_to_non_nullable
@@ -322,7 +309,6 @@ class _$_PersonSafe extends _PersonSafe {
       this.banner,
       required this.deleted,
       this.matrixUserId,
-      required this.admin,
       required this.botAccount,
       this.banExpires,
       required this.instanceHost})
@@ -358,8 +344,6 @@ class _$_PersonSafe extends _PersonSafe {
   @override
   final String? matrixUserId;
   @override
-  final bool admin;
-  @override
   final bool botAccount;
   @override
   final DateTime? banExpires;
@@ -368,7 +352,7 @@ class _$_PersonSafe extends _PersonSafe {
 
   @override
   String toString() {
-    return 'PersonSafe(id: $id, name: $name, displayName: $displayName, avatar: $avatar, banned: $banned, published: $published, updated: $updated, actorId: $actorId, bio: $bio, local: $local, banner: $banner, deleted: $deleted, matrixUserId: $matrixUserId, admin: $admin, botAccount: $botAccount, banExpires: $banExpires, instanceHost: $instanceHost)';
+    return 'PersonSafe(id: $id, name: $name, displayName: $displayName, avatar: $avatar, banned: $banned, published: $published, updated: $updated, actorId: $actorId, bio: $bio, local: $local, banner: $banner, deleted: $deleted, matrixUserId: $matrixUserId, botAccount: $botAccount, banExpires: $banExpires, instanceHost: $instanceHost)';
   }
 
   @override
@@ -392,7 +376,6 @@ class _$_PersonSafe extends _PersonSafe {
             (identical(other.deleted, deleted) || other.deleted == deleted) &&
             (identical(other.matrixUserId, matrixUserId) ||
                 other.matrixUserId == matrixUserId) &&
-            (identical(other.admin, admin) || other.admin == admin) &&
             (identical(other.botAccount, botAccount) ||
                 other.botAccount == botAccount) &&
             (identical(other.banExpires, banExpires) ||
@@ -418,7 +401,6 @@ class _$_PersonSafe extends _PersonSafe {
       banner,
       deleted,
       matrixUserId,
-      admin,
       botAccount,
       banExpires,
       instanceHost);
@@ -452,7 +434,6 @@ abstract class _PersonSafe extends PersonSafe {
       final String? banner,
       required final bool deleted,
       final String? matrixUserId,
-      required final bool admin,
       required final bool botAccount,
       final DateTime? banExpires,
       required final String instanceHost}) = _$_PersonSafe;
@@ -487,8 +468,6 @@ abstract class _PersonSafe extends PersonSafe {
   bool get deleted;
   @override
   String? get matrixUserId;
-  @override
-  bool get admin;
   @override
   bool get botAccount;
   @override
