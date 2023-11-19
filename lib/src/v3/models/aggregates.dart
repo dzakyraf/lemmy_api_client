@@ -68,7 +68,6 @@ class PostAggregates with _$PostAggregates {
 class CommunityAggregates with _$CommunityAggregates {
   @modelSerde
   const factory CommunityAggregates({
-    required int id,
     required int communityId,
     required int subscribers,
     required int posts,

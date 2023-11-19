@@ -89,7 +89,6 @@ Map<String, dynamic> _$$_PostAggregatesToJson(_$_PostAggregates instance) =>
 _$_CommunityAggregates _$$_CommunityAggregatesFromJson(
         Map<String, dynamic> json) =>
     _$_CommunityAggregates(
-      id: json['id'] as int,
       communityId: json['community_id'] as int,
       subscribers: json['subscribers'] as int,
       posts: json['posts'] as int,
@@ -104,7 +103,6 @@ _$_CommunityAggregates _$$_CommunityAggregatesFromJson(
 Map<String, dynamic> _$$_CommunityAggregatesToJson(
         _$_CommunityAggregates instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'community_id': instance.communityId,
       'subscribers': instance.subscribers,
       'posts': instance.posts,
