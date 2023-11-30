@@ -10,7 +10,7 @@ _$_JwtPayload _$$_JwtPayloadFromJson(Map<String, dynamic> json) =>
     _$_JwtPayload(
       iat: json['iat'] as int,
       iss: json['iss'] as String,
-      sub: json['sub'] as int,
+      sub: json['sub'] as String,
     );
 
 Map<String, dynamic> _$$_JwtPayloadToJson(_$_JwtPayload instance) =>

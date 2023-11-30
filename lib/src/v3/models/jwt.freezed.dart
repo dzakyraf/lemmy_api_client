@@ -22,7 +22,7 @@ JwtPayload _$JwtPayloadFromJson(Map<String, dynamic> json) {
 mixin _$JwtPayload {
   int get iat => throw _privateConstructorUsedError;
   String get iss => throw _privateConstructorUsedError;
-  int get sub => throw _privateConstructorUsedError;
+  String get sub => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $JwtPayloadCopyWith<$Res> {
           JwtPayload value, $Res Function(JwtPayload) then) =
       _$JwtPayloadCopyWithImpl<$Res, JwtPayload>;
   @useResult
-  $Res call({int iat, String iss, int sub});
+  $Res call({int iat, String iss, String sub});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$JwtPayloadCopyWithImpl<$Res, $Val extends JwtPayload>
       sub: null == sub
           ? _value.sub
           : sub // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +81,7 @@ abstract class _$$_JwtPayloadCopyWith<$Res>
       __$$_JwtPayloadCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int iat, String iss, int sub});
+  $Res call({int iat, String iss, String sub});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$_JwtPayloadCopyWithImpl<$Res>
       sub: null == sub
           ? _value.sub
           : sub // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
     ));
   }
 }
@@ -131,7 +131,7 @@ class _$_JwtPayload extends _JwtPayload {
   @override
   final String iss;
   @override
-  final int sub;
+  final String sub;
 
   @override
   String toString() {
@@ -170,7 +170,7 @@ abstract class _JwtPayload extends JwtPayload {
   const factory _JwtPayload(
       {required final int iat,
       required final String iss,
-      required final int sub}) = _$_JwtPayload;
+      required final String sub}) = _$_JwtPayload;
   const _JwtPayload._() : super._();
 
   factory _JwtPayload.fromJson(Map<String, dynamic> json) =
@@ -181,7 +181,7 @@ abstract class _JwtPayload extends JwtPayload {
   @override
   String get iss;
   @override
-  int get sub;
+  String get sub;
   @override
   @JsonKey(ignore: true)
   _$$_JwtPayloadCopyWith<_$_JwtPayload> get copyWith =>

@@ -40,7 +40,7 @@ class JwtPayload with _$JwtPayload {
   const factory JwtPayload({
     required int iat,
     required String iss,
-    required int sub,
+    required String sub,
   }) = _JwtPayload;
 
   const JwtPayload._();
