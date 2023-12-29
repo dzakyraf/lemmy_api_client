@@ -26,26 +26,40 @@ class LemmyApiV3 {
       switch (query.httpMethod) {
         case HttpMethod.get:
           return http.get(
-            Uri.https(
-              host,
-              '$extraPath${query.path}',
-              <String, String>{
-                for (final entry in query.toJson().entries)
-                  entry.key: entry.value.toString()
-              },
-            ),
-          );
+              Uri.https(
+                host,
+                '$extraPath${query.path}',
+                <String, String>{
+                  for (final entry in query.toJson().entries)
+                    entry.key: entry.value.toString()
+                },
+              ),
+              headers: {
+                'Authorization': query.toJson().containsKey('auth')
+                    ? 'Bearer ${query.toJson()['auth']}'
+                    : ''
+              });
         case HttpMethod.post:
           return http.post(
             Uri.https(host, '$extraPath${query.path}'),
             body: jsonEncode(query.toJson()),
-            headers: const {'Content-Type': 'application/json'},
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': query.toJson().containsKey('auth')
+                  ? 'Bearer ${query.toJson()['auth']}'
+                  : ''
+            },
           );
         case HttpMethod.put:
           return http.put(
             Uri.https(host, '$extraPath${query.path}'),
             body: jsonEncode(query.toJson()),
-            headers: const {'Content-Type': 'application/json'},
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': query.toJson().containsKey('auth')
+                  ? 'Bearer ${query.toJson()['auth']}'
+                  : ''
+            },
           );
       }
     }();

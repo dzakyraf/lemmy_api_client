@@ -75,9 +75,9 @@ _$_LocalUserSettings _$$_LocalUserSettingsFromJson(Map<String, dynamic> json) =>
       sendNotificationsToEmail: json['send_notifications_to_email'] as bool,
       showReadPosts: json['show_read_posts'] as bool,
       showBotAccounts: json['show_bot_accounts'] as bool,
-      showNewPostNotifs: json['show_new_post_notifs'] as bool,
       emailVerified: json['email_verified'] as bool,
       acceptedApplication: json['accepted_application'] as bool,
+      blurNsfw: json['blur_nsfw'] as bool?,
       instanceHost: json['instance_host'] as String,
       totp2faUrl: json['totp2fa_url'] as String?,
     );
@@ -96,9 +96,9 @@ Map<String, dynamic> _$$_LocalUserSettingsToJson(
       'send_notifications_to_email': instance.sendNotificationsToEmail,
       'show_read_posts': instance.showReadPosts,
       'show_bot_accounts': instance.showBotAccounts,
-      'show_new_post_notifs': instance.showNewPostNotifs,
       'email_verified': instance.emailVerified,
       'accepted_application': instance.acceptedApplication,
+      'blur_nsfw': instance.blurNsfw,
       'instance_host': instance.instanceHost,
       'totp2fa_url': instance.totp2faUrl,
     };

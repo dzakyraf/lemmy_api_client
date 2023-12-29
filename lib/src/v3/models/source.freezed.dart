@@ -501,9 +501,9 @@ mixin _$LocalUserSettings {
   bool get sendNotificationsToEmail => throw _privateConstructorUsedError;
   bool get showReadPosts => throw _privateConstructorUsedError;
   bool get showBotAccounts => throw _privateConstructorUsedError;
-  bool get showNewPostNotifs => throw _privateConstructorUsedError;
   bool get emailVerified => throw _privateConstructorUsedError;
   bool get acceptedApplication => throw _privateConstructorUsedError;
+  bool? get blurNsfw => throw _privateConstructorUsedError;
   String get instanceHost => throw _privateConstructorUsedError;
   String? get totp2faUrl => throw _privateConstructorUsedError;
 
@@ -531,9 +531,9 @@ abstract class $LocalUserSettingsCopyWith<$Res> {
       bool sendNotificationsToEmail,
       bool showReadPosts,
       bool showBotAccounts,
-      bool showNewPostNotifs,
       bool emailVerified,
       bool acceptedApplication,
+      bool? blurNsfw,
       String instanceHost,
       String? totp2faUrl});
 }
@@ -562,9 +562,9 @@ class _$LocalUserSettingsCopyWithImpl<$Res, $Val extends LocalUserSettings>
     Object? sendNotificationsToEmail = null,
     Object? showReadPosts = null,
     Object? showBotAccounts = null,
-    Object? showNewPostNotifs = null,
     Object? emailVerified = null,
     Object? acceptedApplication = null,
+    Object? blurNsfw = freezed,
     Object? instanceHost = null,
     Object? totp2faUrl = freezed,
   }) {
@@ -613,10 +613,6 @@ class _$LocalUserSettingsCopyWithImpl<$Res, $Val extends LocalUserSettings>
           ? _value.showBotAccounts
           : showBotAccounts // ignore: cast_nullable_to_non_nullable
               as bool,
-      showNewPostNotifs: null == showNewPostNotifs
-          ? _value.showNewPostNotifs
-          : showNewPostNotifs // ignore: cast_nullable_to_non_nullable
-              as bool,
       emailVerified: null == emailVerified
           ? _value.emailVerified
           : emailVerified // ignore: cast_nullable_to_non_nullable
@@ -625,6 +621,10 @@ class _$LocalUserSettingsCopyWithImpl<$Res, $Val extends LocalUserSettings>
           ? _value.acceptedApplication
           : acceptedApplication // ignore: cast_nullable_to_non_nullable
               as bool,
+      blurNsfw: freezed == blurNsfw
+          ? _value.blurNsfw
+          : blurNsfw // ignore: cast_nullable_to_non_nullable
+              as bool?,
       instanceHost: null == instanceHost
           ? _value.instanceHost
           : instanceHost // ignore: cast_nullable_to_non_nullable
@@ -657,9 +657,9 @@ abstract class _$$_LocalUserSettingsCopyWith<$Res>
       bool sendNotificationsToEmail,
       bool showReadPosts,
       bool showBotAccounts,
-      bool showNewPostNotifs,
       bool emailVerified,
       bool acceptedApplication,
+      bool? blurNsfw,
       String instanceHost,
       String? totp2faUrl});
 }
@@ -686,9 +686,9 @@ class __$$_LocalUserSettingsCopyWithImpl<$Res>
     Object? sendNotificationsToEmail = null,
     Object? showReadPosts = null,
     Object? showBotAccounts = null,
-    Object? showNewPostNotifs = null,
     Object? emailVerified = null,
     Object? acceptedApplication = null,
+    Object? blurNsfw = freezed,
     Object? instanceHost = null,
     Object? totp2faUrl = freezed,
   }) {
@@ -737,10 +737,6 @@ class __$$_LocalUserSettingsCopyWithImpl<$Res>
           ? _value.showBotAccounts
           : showBotAccounts // ignore: cast_nullable_to_non_nullable
               as bool,
-      showNewPostNotifs: null == showNewPostNotifs
-          ? _value.showNewPostNotifs
-          : showNewPostNotifs // ignore: cast_nullable_to_non_nullable
-              as bool,
       emailVerified: null == emailVerified
           ? _value.emailVerified
           : emailVerified // ignore: cast_nullable_to_non_nullable
@@ -749,6 +745,10 @@ class __$$_LocalUserSettingsCopyWithImpl<$Res>
           ? _value.acceptedApplication
           : acceptedApplication // ignore: cast_nullable_to_non_nullable
               as bool,
+      blurNsfw: freezed == blurNsfw
+          ? _value.blurNsfw
+          : blurNsfw // ignore: cast_nullable_to_non_nullable
+              as bool?,
       instanceHost: null == instanceHost
           ? _value.instanceHost
           : instanceHost // ignore: cast_nullable_to_non_nullable
@@ -777,9 +777,9 @@ class _$_LocalUserSettings extends _LocalUserSettings {
       required this.sendNotificationsToEmail,
       required this.showReadPosts,
       required this.showBotAccounts,
-      required this.showNewPostNotifs,
       required this.emailVerified,
       required this.acceptedApplication,
+      this.blurNsfw,
       required this.instanceHost,
       this.totp2faUrl})
       : super._();
@@ -815,11 +815,11 @@ class _$_LocalUserSettings extends _LocalUserSettings {
   @override
   final bool showBotAccounts;
   @override
-  final bool showNewPostNotifs;
-  @override
   final bool emailVerified;
   @override
   final bool acceptedApplication;
+  @override
+  final bool? blurNsfw;
   @override
   final String instanceHost;
   @override
@@ -827,7 +827,7 @@ class _$_LocalUserSettings extends _LocalUserSettings {
 
   @override
   String toString() {
-    return 'LocalUserSettings(id: $id, personId: $personId, email: $email, showNsfw: $showNsfw, theme: $theme, interfaceLanguage: $interfaceLanguage, showAvatars: $showAvatars, showScores: $showScores, sendNotificationsToEmail: $sendNotificationsToEmail, showReadPosts: $showReadPosts, showBotAccounts: $showBotAccounts, showNewPostNotifs: $showNewPostNotifs, emailVerified: $emailVerified, acceptedApplication: $acceptedApplication, instanceHost: $instanceHost, totp2faUrl: $totp2faUrl)';
+    return 'LocalUserSettings(id: $id, personId: $personId, email: $email, showNsfw: $showNsfw, theme: $theme, interfaceLanguage: $interfaceLanguage, showAvatars: $showAvatars, showScores: $showScores, sendNotificationsToEmail: $sendNotificationsToEmail, showReadPosts: $showReadPosts, showBotAccounts: $showBotAccounts, emailVerified: $emailVerified, acceptedApplication: $acceptedApplication, blurNsfw: $blurNsfw, instanceHost: $instanceHost, totp2faUrl: $totp2faUrl)';
   }
 
   @override
@@ -855,12 +855,12 @@ class _$_LocalUserSettings extends _LocalUserSettings {
                 other.showReadPosts == showReadPosts) &&
             (identical(other.showBotAccounts, showBotAccounts) ||
                 other.showBotAccounts == showBotAccounts) &&
-            (identical(other.showNewPostNotifs, showNewPostNotifs) ||
-                other.showNewPostNotifs == showNewPostNotifs) &&
             (identical(other.emailVerified, emailVerified) ||
                 other.emailVerified == emailVerified) &&
             (identical(other.acceptedApplication, acceptedApplication) ||
                 other.acceptedApplication == acceptedApplication) &&
+            (identical(other.blurNsfw, blurNsfw) ||
+                other.blurNsfw == blurNsfw) &&
             (identical(other.instanceHost, instanceHost) ||
                 other.instanceHost == instanceHost) &&
             (identical(other.totp2faUrl, totp2faUrl) ||
@@ -882,9 +882,9 @@ class _$_LocalUserSettings extends _LocalUserSettings {
       sendNotificationsToEmail,
       showReadPosts,
       showBotAccounts,
-      showNewPostNotifs,
       emailVerified,
       acceptedApplication,
+      blurNsfw,
       instanceHost,
       totp2faUrl);
 
@@ -916,9 +916,9 @@ abstract class _LocalUserSettings extends LocalUserSettings {
       required final bool sendNotificationsToEmail,
       required final bool showReadPosts,
       required final bool showBotAccounts,
-      required final bool showNewPostNotifs,
       required final bool emailVerified,
       required final bool acceptedApplication,
+      final bool? blurNsfw,
       required final String instanceHost,
       final String? totp2faUrl}) = _$_LocalUserSettings;
   const _LocalUserSettings._() : super._();
@@ -953,11 +953,11 @@ abstract class _LocalUserSettings extends LocalUserSettings {
   @override
   bool get showBotAccounts;
   @override
-  bool get showNewPostNotifs;
-  @override
   bool get emailVerified;
   @override
   bool get acceptedApplication;
+  @override
+  bool? get blurNsfw;
   @override
   String get instanceHost;
   @override

@@ -78,7 +78,8 @@ enum SortType {
   TopThreeMonths('TopThreeMonths'),
   TopSixMonths('TopSixMonths'),
   TopNineMonths('TopNineMonths'),
-  ;
+  Controversial('Controversial'),
+  Scaled('Scaled');
 
   final String value;
   const SortType(this.value);

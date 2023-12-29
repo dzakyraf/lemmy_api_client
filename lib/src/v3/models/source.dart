@@ -55,9 +55,9 @@ class LocalUserSettings with _$LocalUserSettings {
       required bool sendNotificationsToEmail,
       required bool showReadPosts,
       required bool showBotAccounts,
-      required bool showNewPostNotifs,
       required bool emailVerified,
       required bool acceptedApplication,
+      bool? blurNsfw,
       required String instanceHost,
       String? totp2faUrl}) = _LocalUserSettings;
 

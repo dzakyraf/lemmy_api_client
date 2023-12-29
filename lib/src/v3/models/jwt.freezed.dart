@@ -22,6 +22,7 @@ JwtPayload _$JwtPayloadFromJson(Map<String, dynamic> json) {
 mixin _$JwtPayload {
   int get iat => throw _privateConstructorUsedError;
   String get iss => throw _privateConstructorUsedError;
+  @SubConverter()
   String get sub => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +37,7 @@ abstract class $JwtPayloadCopyWith<$Res> {
           JwtPayload value, $Res Function(JwtPayload) then) =
       _$JwtPayloadCopyWithImpl<$Res, JwtPayload>;
   @useResult
-  $Res call({int iat, String iss, String sub});
+  $Res call({int iat, String iss, @SubConverter() String sub});
 }
 
 /// @nodoc
@@ -81,7 +82,7 @@ abstract class _$$_JwtPayloadCopyWith<$Res>
       __$$_JwtPayloadCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int iat, String iss, String sub});
+  $Res call({int iat, String iss, @SubConverter() String sub});
 }
 
 /// @nodoc
@@ -120,7 +121,8 @@ class __$$_JwtPayloadCopyWithImpl<$Res>
 
 @modelSerde
 class _$_JwtPayload extends _JwtPayload {
-  const _$_JwtPayload({required this.iat, required this.iss, required this.sub})
+  const _$_JwtPayload(
+      {required this.iat, required this.iss, @SubConverter() required this.sub})
       : super._();
 
   factory _$_JwtPayload.fromJson(Map<String, dynamic> json) =>
@@ -131,6 +133,7 @@ class _$_JwtPayload extends _JwtPayload {
   @override
   final String iss;
   @override
+  @SubConverter()
   final String sub;
 
   @override
@@ -170,7 +173,7 @@ abstract class _JwtPayload extends JwtPayload {
   const factory _JwtPayload(
       {required final int iat,
       required final String iss,
-      required final String sub}) = _$_JwtPayload;
+      @SubConverter() required final String sub}) = _$_JwtPayload;
   const _JwtPayload._() : super._();
 
   factory _JwtPayload.fromJson(Map<String, dynamic> json) =
@@ -181,6 +184,7 @@ abstract class _JwtPayload extends JwtPayload {
   @override
   String get iss;
   @override
+  @SubConverter()
   String get sub;
   @override
   @JsonKey(ignore: true)

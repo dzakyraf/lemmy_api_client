@@ -40,10 +40,22 @@ class JwtPayload with _$JwtPayload {
   const factory JwtPayload({
     required int iat,
     required String iss,
-    required String sub,
+    @SubConverter() required String sub,
   }) = _JwtPayload;
 
   const JwtPayload._();
   factory JwtPayload.fromJson(Map<String, dynamic> json) =>
       _$JwtPayloadFromJson(json);
+}
+
+class SubConverter implements JsonConverter<String, dynamic> {
+  const SubConverter();
+
+  @override
+  String fromJson(dynamic d) {
+    return '$d';
+  }
+
+  @override
+  dynamic toJson(String d) => d;
 }
